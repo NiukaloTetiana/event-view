@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 export const Header = () => {
   return (
     <header className="">
-      <nav>
-        <ul className="flex gap-[30px]">
+      <nav className="container">
+        <ul className="flex gap-[18px]">
           <li>
             <NavLink className="" to="/">
               Home
