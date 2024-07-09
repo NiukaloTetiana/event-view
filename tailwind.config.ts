@@ -8,6 +8,21 @@ export default {
       lg: "1440px",
     },
     extend: {
+      colors: {
+        accentColor: "#54be96",
+        whiteColor: "#fff",
+        lightColor: "",
+        darkColor: "",
+        hoverColor: "#36a379",
+        opacityDarkColor: "",
+        textColor: "#191a15",
+        secondTextColor: "",
+        borderColor: "#191a154d",
+        secondBorderColor: "",
+        textFilterColor: "",
+        bgFirstLigtColor: "#fbfbfb",
+        bgSecondLigtColor: "#eff7f4",
+      },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
       },
@@ -35,6 +50,25 @@ export default {
             paddingLeft: "128px",
             paddingRight: "128px",
             maxWidth: "1440px",
+          },
+        },
+        ".link": {
+          position: "relative",
+          "&::after": {
+            content: "''",
+            position: "absolute",
+            left: "0",
+            bottom: "0",
+            width: "100%",
+            height: "2px",
+            backgroundColor: "#54be96",
+            transition: "transform 0.7s",
+            transformOrigin: "right",
+            transform: "scaleX(0)",
+          },
+          "&:hover::after": {
+            transform: "scaleX(1)",
+            transformOrigin: "left",
           },
         },
       });

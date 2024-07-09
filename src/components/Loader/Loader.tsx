@@ -7,7 +7,7 @@ export const Loader = () => {
         visible={true}
         height="180"
         width="180"
-        color="#4fa94d"
+        color="#54be96"
         ariaLabel="rings-loading"
         wrapperStyle={{}}
         wrapperClass=""

@@ -43,3 +43,25 @@
   font-display: swap;
 }
 /* --------------- */
+
+body {
+  background: linear-gradient(to right, #fbfbfb, #eff7f4);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+
+.title {
+  @apply font-medium text-[30px] md:text-[40px] leading-[1.2] tracking-[-0.02em] mb-3 lg:mb-5;
+}
+
+.description {
+  @apply text-[14px] md:text-[16px] text-textColor opacity-50 leading-[1.25] mb-5 lg:mb-10;
+}
+
+.active {
+  @apply text-accentColor;
+}
+
+.primary-btn-hover {
+  @apply active:bg-hoverColor focus:bg-hoverColor lg:hover:bg-hoverColor transition duration-300;
+}
