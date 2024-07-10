@@ -1,11 +1,13 @@
 import { EventsItem } from "./EventsItem";
-import events from "../../assets/events.json";
+import { IEvent } from "../../types";
 
-interface IEventsListProps {}
+interface IEventsListProps {
+  events: IEvent[];
+}
 
-export const EventsList: React.FC<IEventsListProps> = () => {
+export const EventsList: React.FC<IEventsListProps> = ({ events }) => {
   return (
-    <ul className="flex flex-wrap gap-[32px] md:justify-center md:w-[704px] lg:w-full mb-12 lg:mb-16">
+    <ul className="flex flex-wrap justify-center gap-[35px]">
       {events.map((event, index) => (
         <EventsItem key={index} {...{ event, index }} />
       ))}

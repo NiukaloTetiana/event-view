@@ -21,7 +21,7 @@ export default {
         secondBorderColor: "",
         textFilterColor: "",
         bgFirstLigtColor: "#fbfbfb",
-        bgSecondLigtColor: "#eff7f4",
+        bgSecondLightColor: "#eff7f4",
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],

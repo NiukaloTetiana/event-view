@@ -2,9 +2,25 @@ import { useNavigate } from "react-router-dom";
 
 import { Icon } from "../components";
 import welcome from "../assets/images/welcome.png";
+import { useEffect } from "react";
 
 const Home = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.body.classList.add(
+      "bg-gradient-to-r",
+      "from-bgFirstLigtColor",
+      "to-bgSecondLightColor"
+    );
+    return () => {
+      document.body.classList.remove(
+        "bg-gradient-to-r",
+        "from-bgFirstLigtColor",
+        "to-bgSecondLightColor"
+      );
+    };
+  }, []);
 
   return (
     <div className="container py-8 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">

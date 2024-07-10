@@ -45,13 +45,13 @@
 /* --------------- */
 
 body {
-  background: linear-gradient(to right, #fbfbfb, #eff7f4);
+  background-color: #f3f3f3;
   font-family: "Inter", sans-serif;
   font-weight: 400;
 }
 
 .description {
-  @apply text-[14px] md:text-[16px] text-textColor leading-[1.25] mb-5 lg:mb-10 active:text-hoverColor focus:text-hoverColor lg:hover:text-hoverColor transition duration-300;
+  @apply pb-[2px] text-[14px] md:text-[16px] text-textColor leading-[1.25] active:text-hoverColor focus:text-hoverColor lg:hover:text-hoverColor transition duration-300;
 }
 
 .active {
@@ -63,5 +63,5 @@ body {
 }
 
 .item {
-  @apply inline-block bg-lightColor rounded-[20px] md:rounded-[24px] px-[16px] py-[8px] md:px-[10px] md:py-[5px] lg:px-[16px] lg:py-[8px] shadow-md;
+  @apply self-start bg-lightColor rounded-[20px] md:rounded-[24px] px-[16px] py-[8px] md:px-[10px] md:py-[5px] lg:px-[16px] lg:py-[8px] shadow-md;
 }

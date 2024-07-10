@@ -4,77 +4,77 @@
     "description": "A gathering of the brightest minds in technology.",
     "event_date": "2024-08-01",
     "organizer": "Tech World",
-    "logo_url": "https://example.com/logos/techworld.png"
+    "logo_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuQ94QEsh9rQ0_yLbzcHOZCNhdBVlCuk4ghw&s"
   },
   {
     "title": "Art & Culture Expo",
     "description": "Showcasing contemporary art and cultural performances.",
     "event_date": "2024-08-05",
     "organizer": "Creative Minds",
-    "logo_url": "https://example.com/logos/creativeminds.png"
+    "logo_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuQ94QEsh9rQ0_yLbzcHOZCNhdBVlCuk4ghw&s"
   },
   {
     "title": "Business Networking Gala",
     "description": "A chance to meet and network with business professionals.",
     "event_date": "2024-08-10",
     "organizer": "BizConnect",
-    "logo_url": "https://example.com/logos/bizconnect.png"
+    "logo_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuQ94QEsh9rQ0_yLbzcHOZCNhdBVlCuk4ghw&s"
   },
   {
     "title": "Health & Wellness Fair",
     "description": "Promoting a healthy lifestyle with various activities and talks.",
     "event_date": "2024-08-12",
     "organizer": "Wellness Corp",
-    "logo_url": "https://example.com/logos/wellnesscorp.png"
+    "logo_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuQ94QEsh9rQ0_yLbzcHOZCNhdBVlCuk4ghw&s"
   },
   {
     "title": "Foodie Festival",
     "description": "A festival celebrating food from around the world.",
     "event_date": "2024-08-15",
     "organizer": "Food Lovers",
-    "logo_url": "https://example.com/logos/foodlovers.png"
+    "logo_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuQ94QEsh9rQ0_yLbzcHOZCNhdBVlCuk4ghw&s"
   },
   {
     "title": "Music & Arts Festival",
     "description": "A weekend of live music and artistic expression.",
     "event_date": "2024-08-18",
     "organizer": "Festive Events",
-    "logo_url": "https://example.com/logos/festiveevents.png"
+    "logo_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuQ94QEsh9rQ0_yLbzcHOZCNhdBVlCuk4ghw&s"
   },
   {
     "title": "Startup Pitch Night",
     "description": "Entrepreneurs pitch their startups to investors.",
     "event_date": "2024-08-20",
     "organizer": "Startup Hub",
-    "logo_url": "https://example.com/logos/startuphub.png"
+    "logo_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuQ94QEsh9rQ0_yLbzcHOZCNhdBVlCuk4ghw&s"
   },
   {
     "title": "Environmental Awareness Conference",
     "description": "Discussing the latest in environmental conservation.",
     "event_date": "2024-08-22",
     "organizer": "Green Earth",
-    "logo_url": "https://example.com/logos/greenearth.png"
+    "logo_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuQ94QEsh9rQ0_yLbzcHOZCNhdBVlCuk4ghw&s"
   },
   {
     "title": "Tech Job Fair",
     "description": "Connecting job seekers with top tech companies.",
     "event_date": "2024-08-25",
     "organizer": "Career Boost",
-    "logo_url": "https://example.com/logos/careerboost.png"
+    "logo_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuQ94QEsh9rQ0_yLbzcHOZCNhdBVlCuk4ghw&s"
   },
   {
     "title": "Fashion Week",
     "description": "A showcase of the latest fashion trends.",
     "event_date": "2024-08-28",
     "organizer": "Style Creators",
-    "logo_url": "https://example.com/logos/stylecreators.png"
+    "logo_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuQ94QEsh9rQ0_yLbzcHOZCNhdBVlCuk4ghw&s"
   },
   {
     "title": "Film Festival",
     "description": "Screening independent films from around the world.",
     "event_date": "2024-09-01",
     "organizer": "Cinema Lovers",
-    "logo_url": "https://example.com/logos/cinemalovers.png"
+    "logo_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuQ94QEsh9rQ0_yLbzcHOZCNhdBVlCuk4ghw&s"
   },
   {
     "title": "Science Expo",
@@ -193,20 +193,20 @@
     "description": "A spooky celebration with costumes and treats.",
     "event_date": "2024-10-31",
     "organizer": "Party Planners",
-    "logo_url": "https://example.com/logos/partyplanners.png"
+    "logo_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuQ94QEsh9rQ0_yLbzcHOZCNhdBVlCuk4ghw&s"
   },
   {
     "title": "Science Fiction Convention",
     "description": "A convention for fans of science fiction.",
     "event_date": "2024-11-04",
     "organizer": "Sci-Fi Fans",
-    "logo_url": "https://example.com/logos/scififans.png"
+    "logo_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuQ94QEsh9rQ0_yLbzcHOZCNhdBVlCuk4ghw&s"
   },
   {
     "title": "Winter Wonderland Festival",
     "description": "A festive celebration of the winter season.",
     "event_date": "2024-12-01",
     "organizer": "Festive Spirits",
-    "logo_url": "https://example.com/logos/festivespirits.png"
+    "logo_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuQ94QEsh9rQ0_yLbzcHOZCNhdBVlCuk4ghw&s"
   }
 ]
