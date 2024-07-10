@@ -1,5 +1,7 @@
+import { EventsList } from "../components";
+
 const EventsBoard = () => {
-  return <div>EventsBoard</div>;
+  return <EventsList />;
 };
 
 export default EventsBoard;

@@ -50,12 +50,8 @@ body {
   font-weight: 400;
 }
 
-.title {
-  @apply font-medium text-[30px] md:text-[40px] leading-[1.2] tracking-[-0.02em] mb-3 lg:mb-5;
-}
-
 .description {
-  @apply text-[14px] md:text-[16px] text-textColor opacity-50 leading-[1.25] mb-5 lg:mb-10;
+  @apply text-[14px] md:text-[16px] text-textColor leading-[1.25] mb-5 lg:mb-10 active:text-hoverColor focus:text-hoverColor lg:hover:text-hoverColor transition duration-300;
 }
 
 .active {
@@ -64,4 +60,8 @@ body {
 
 .primary-btn-hover {
   @apply active:bg-hoverColor focus:bg-hoverColor lg:hover:bg-hoverColor transition duration-300;
+}
+
+.item {
+  @apply inline-block bg-lightColor rounded-[20px] md:rounded-[24px] px-[16px] py-[8px] md:px-[10px] md:py-[5px] lg:px-[16px] lg:py-[8px] shadow-md;
 }

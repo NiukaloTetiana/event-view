@@ -1,0 +1,212 @@
+[
+  {
+    "title": "Tech Innovators Summit",
+    "description": "A gathering of the brightest minds in technology.",
+    "event_date": "2024-08-01",
+    "organizer": "Tech World",
+    "logo_url": "https://example.com/logos/techworld.png"
+  },
+  {
+    "title": "Art & Culture Expo",
+    "description": "Showcasing contemporary art and cultural performances.",
+    "event_date": "2024-08-05",
+    "organizer": "Creative Minds",
+    "logo_url": "https://example.com/logos/creativeminds.png"
+  },
+  {
+    "title": "Business Networking Gala",
+    "description": "A chance to meet and network with business professionals.",
+    "event_date": "2024-08-10",
+    "organizer": "BizConnect",
+    "logo_url": "https://example.com/logos/bizconnect.png"
+  },
+  {
+    "title": "Health & Wellness Fair",
+    "description": "Promoting a healthy lifestyle with various activities and talks.",
+    "event_date": "2024-08-12",
+    "organizer": "Wellness Corp",
+    "logo_url": "https://example.com/logos/wellnesscorp.png"
+  },
+  {
+    "title": "Foodie Festival",
+    "description": "A festival celebrating food from around the world.",
+    "event_date": "2024-08-15",
+    "organizer": "Food Lovers",
+    "logo_url": "https://example.com/logos/foodlovers.png"
+  },
+  {
+    "title": "Music & Arts Festival",
+    "description": "A weekend of live music and artistic expression.",
+    "event_date": "2024-08-18",
+    "organizer": "Festive Events",
+    "logo_url": "https://example.com/logos/festiveevents.png"
+  },
+  {
+    "title": "Startup Pitch Night",
+    "description": "Entrepreneurs pitch their startups to investors.",
+    "event_date": "2024-08-20",
+    "organizer": "Startup Hub",
+    "logo_url": "https://example.com/logos/startuphub.png"
+  },
+  {
+    "title": "Environmental Awareness Conference",
+    "description": "Discussing the latest in environmental conservation.",
+    "event_date": "2024-08-22",
+    "organizer": "Green Earth",
+    "logo_url": "https://example.com/logos/greenearth.png"
+  },
+  {
+    "title": "Tech Job Fair",
+    "description": "Connecting job seekers with top tech companies.",
+    "event_date": "2024-08-25",
+    "organizer": "Career Boost",
+    "logo_url": "https://example.com/logos/careerboost.png"
+  },
+  {
+    "title": "Fashion Week",
+    "description": "A showcase of the latest fashion trends.",
+    "event_date": "2024-08-28",
+    "organizer": "Style Creators",
+    "logo_url": "https://example.com/logos/stylecreators.png"
+  },
+  {
+    "title": "Film Festival",
+    "description": "Screening independent films from around the world.",
+    "event_date": "2024-09-01",
+    "organizer": "Cinema Lovers",
+    "logo_url": "https://example.com/logos/cinemalovers.png"
+  },
+  {
+    "title": "Science Expo",
+    "description": "Exhibits and talks on recent scientific advancements.",
+    "event_date": "2024-09-04",
+    "organizer": "Science Today",
+    "logo_url": "https://example.com/logos/sciencetoday.png"
+  },
+  {
+    "title": "Book Fair",
+    "description": "A celebration of literature with book signings and readings.",
+    "event_date": "2024-09-07",
+    "organizer": "Book Lovers",
+    "logo_url": "https://example.com/logos/booklovers.png"
+  },
+  {
+    "title": "Gaming Convention",
+    "description": "The latest in video games and gaming technology.",
+    "event_date": "2024-09-10",
+    "organizer": "Game On",
+    "logo_url": "https://example.com/logos/gameon.png"
+  },
+  {
+    "title": "Marathon",
+    "description": "A city-wide marathon for all fitness levels.",
+    "event_date": "2024-09-13",
+    "organizer": "Run For Health",
+    "logo_url": "https://example.com/logos/runforhealth.png"
+  },
+  {
+    "title": "Tech Talks",
+    "description": "A series of talks on cutting-edge technology.",
+    "event_date": "2024-09-16",
+    "organizer": "Innovate Now",
+    "logo_url": "https://example.com/logos/innovatenow.png"
+  },
+  {
+    "title": "Historical Reenactment Fair",
+    "description": "Bringing history to life with reenactments and exhibits.",
+    "event_date": "2024-09-18",
+    "organizer": "History Buffs",
+    "logo_url": "https://example.com/logos/historybuffs.png"
+  },
+  {
+    "title": "Startup Weekend",
+    "description": "A weekend dedicated to launching new startups.",
+    "event_date": "2024-09-21",
+    "organizer": "Entrepreneur Network",
+    "logo_url": "https://example.com/logos/entrepreneurnetwork.png"
+  },
+  {
+    "title": "Yoga Retreat",
+    "description": "A peaceful retreat focused on yoga and mindfulness.",
+    "event_date": "2024-09-24",
+    "organizer": "Peaceful Minds",
+    "logo_url": "https://example.com/logos/peacefulminds.png"
+  },
+  {
+    "title": "Wine & Cheese Tasting",
+    "description": "An evening of wine and cheese tasting.",
+    "event_date": "2024-09-26",
+    "organizer": "Gourmet Delights",
+    "logo_url": "https://example.com/logos/gourmetdelights.png"
+  },
+  {
+    "title": "Robotics Competition",
+    "description": "Showcasing the latest in robotics technology.",
+    "event_date": "2024-09-29",
+    "organizer": "RoboTech",
+    "logo_url": "https://example.com/logos/robotech.png"
+  },
+  {
+    "title": "Meditation Workshop",
+    "description": "A workshop on meditation techniques and practices.",
+    "event_date": "2024-10-02",
+    "organizer": "Mindful Life",
+    "logo_url": "https://example.com/logos/mindfullife.png"
+  },
+  {
+    "title": "Charity Run",
+    "description": "A run to raise money for local charities.",
+    "event_date": "2024-10-05",
+    "organizer": "Charity Runners",
+    "logo_url": "https://example.com/logos/charityrunners.png"
+  },
+  {
+    "title": "Craft Fair",
+    "description": "A fair showcasing handmade crafts and goods.",
+    "event_date": "2024-10-08",
+    "organizer": "Crafty Hands",
+    "logo_url": "https://example.com/logos/craftyhands.png"
+  },
+  {
+    "title": "Jazz Festival",
+    "description": "A festival featuring live jazz music.",
+    "event_date": "2024-10-11",
+    "organizer": "Jazz Lovers",
+    "logo_url": "https://example.com/logos/jazzlovers.png"
+  },
+  {
+    "title": "Pet Adoption Day",
+    "description": "An event to help find homes for shelter pets.",
+    "event_date": "2024-10-14",
+    "organizer": "Animal Rescue",
+    "logo_url": "https://example.com/logos/animalrescue.png"
+  },
+  {
+    "title": "Culinary Arts Festival",
+    "description": "Celebrating the art of cooking with demonstrations and tastings.",
+    "event_date": "2024-10-17",
+    "organizer": "Culinary Experts",
+    "logo_url": "https://example.com/logos/culinaryexperts.png"
+  },
+  {
+    "title": "Halloween Party",
+    "description": "A spooky celebration with costumes and treats.",
+    "event_date": "2024-10-31",
+    "organizer": "Party Planners",
+    "logo_url": "https://example.com/logos/partyplanners.png"
+  },
+  {
+    "title": "Science Fiction Convention",
+    "description": "A convention for fans of science fiction.",
+    "event_date": "2024-11-04",
+    "organizer": "Sci-Fi Fans",
+    "logo_url": "https://example.com/logos/scififans.png"
+  },
+  {
+    "title": "Winter Wonderland Festival",
+    "description": "A festive celebration of the winter season.",
+    "event_date": "2024-12-01",
+    "organizer": "Festive Spirits",
+    "logo_url": "https://example.com/logos/festivespirits.png"
+  }
+]
