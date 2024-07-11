@@ -24,8 +24,8 @@ const Home = () => {
 
   return (
     <div className="container py-8 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-      <div className="md:w-[320px] lg:w-[540px]">
-        <h1 className="sm-max:w-[250px] w-[310px] md:w-full font-semibold sm-max:text-[34px] text-[40px] md:text-[44px] lg:text-[70px] leading-[1.02] tracking-[-0.02em] mb-[20px] lg:mb-[30px]">
+      <div className="md:w-[320px] lg:w-[520px]">
+        <h1 className="sm-max:w-[250px] w-[310px] md:w-full font-semibold sm-max:text-[34px] text-[40px] md:text-[44px] lg:text-[74px] leading-[1.02] tracking-[-0.02em] mb-[20px] lg:mb-[30px]">
           Open the world of events with{" "}
           <span className="text-accentColor italic">Event View</span> - all
           events in one place!
