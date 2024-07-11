@@ -24,20 +24,20 @@ const Home = () => {
 
   return (
     <div className="container py-8 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-      <div className="md:w-[400px] lg:w-[560px]">
-        <h1 className="font-semibold text-[32px] md:text-[48px] lg:text-[80px] leading-[1.02] tracking-[-0.02em] mb-[20px] lg:mb-[30px]">
+      <div className="md:w-[320px] lg:w-[540px]">
+        <h1 className="sm-max:w-[250px] w-[310px] md:w-full font-semibold sm-max:text-[34px] text-[40px] md:text-[44px] lg:text-[70px] leading-[1.02] tracking-[-0.02em] mb-[20px] lg:mb-[30px]">
           Open the world of events with{" "}
           <span className="text-accentColor italic">Event View</span> - all
           events in one place!
         </h1>
-        <p className="font-medium text-[14px] md:text-[16px] lg:text-[18px] leading-[1.33] tracking-[-0.02em] mb-[30px] md:mb-10">
+        <p className="font-medium text-[14px] md:text-[16px] lg:text-[18px] leading-[1.33] tracking-[-0.02em] mb-[30px] lg:mb-10">
           Discover and manage all your events in one place with us. Stay
           updated, plan efficiently, and never miss an event again.
         </p>
         <button
           type="button"
           onClick={() => navigate("/board")}
-          className="flex gap-[18px] justify-center items-center border border-transparent bg-accentColor rounded-[30px] py-[18px] w-[230px] font-medium text-[20px] text-bgFirstLigtColor
+          className="flex gap-[18px] justify-center items-center border border-transparent bg-accentColor rounded-[30px] py-[18px] w-[200px] lg:w-[230px] font-medium text-[18px] lg:text-[20px] text-bgFirstLigtColor
       leading-[1.2] tracking-[-0.01em] primary-btn-hover group"
         >
           Get started
@@ -54,7 +54,7 @@ const Home = () => {
         src={welcome}
         alt="People are resting at event"
         width={318}
-        className="sm-max:w-[280px] rounded-[10px]"
+        className="w-full md:w-[340px] lg:w-[480px] rounded-[10px]"
       />
     </div>
   );
