@@ -1,9 +1,5 @@
-
-
 const EventParticipants = () => {
-  return (
-    <div>EventParticipants</div>
-  )
-}
+  return <div className="container pt-[64px]">EventParticipants</div>;
+};
 
-export default EventParticipants
+export default EventParticipants;
