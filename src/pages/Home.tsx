@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import { BsArrowUpRight } from "react-icons/bs";
 
-import { Icon } from "../components";
 import welcome from "../assets/images/welcome.png";
 import { useEffect } from "react";
 
@@ -41,9 +41,8 @@ const Home = () => {
       leading-[1.2] tracking-[-0.01em] primary-btn-hover group"
         >
           Get started
-          <Icon
-            id="arrow-up"
-            className="fill-current group-hover:rotate-[53deg] transition duration-500"
+          <BsArrowUpRight
+            className="fill-current group-hover:rotate-[45deg] transition duration-500"
             size="20"
           />
         </button>

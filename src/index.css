@@ -65,3 +65,7 @@ body {
 .item {
   @apply self-start bg-lightColor rounded-[20px] md:rounded-[24px] px-[16px] py-[8px] md:px-[10px] md:py-[5px] lg:px-[16px] lg:py-[8px] shadow-md;
 }
+
+.link-back {
+  @apply font-medium text-[16px] leading-[1.1] text-textColor link pb-[3px];
+}

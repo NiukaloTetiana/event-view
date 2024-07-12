@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-
-import { Icon } from "../../components";
+import { FaArrowUp } from "react-icons/fa6";
 
 export const ScrollUpButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -37,7 +36,7 @@ export const ScrollUpButton = () => {
           !isVisible ? "scale-0" : "scale-1"
         }`}
     >
-      <Icon id="arrow" className="fill-whiteColor" size="20" />
+      <FaArrowUp className="fill-whiteColor" size="20" />
     </button>
   );
 };
