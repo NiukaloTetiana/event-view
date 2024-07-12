@@ -5,3 +5,4 @@ export * from "./Header/Header";
 export * from "./ScrollUpButton/ScrollUpButton";
 export * from "./EventsList/EventsItem";
 export * from "./EventsList/EventsList";
+export * from "./Sort/Sort";
