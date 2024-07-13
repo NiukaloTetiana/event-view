@@ -15,4 +15,5 @@ export const ParticipantRegisterSchema = yup.object({
     .matches(emailRegExp, "Enter a valid email")
     .max(64, "Max length must be less than 64 chars"),
   date: yup.date().required("Date of birth is required"),
+  eventAdvertisementSource: yup.string().required("Event source is required"),
 });
