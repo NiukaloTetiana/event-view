@@ -22,6 +22,7 @@ export const RegisterForm = () => {
   } = useForm<IFormData>({
     mode: "onChange",
     resolver: yupResolver(ParticipantRegisterSchema),
+    defaultValues: { eventAdvertisementSource: "Social media" },
   });
 
   const onSubmit: SubmitHandler<IFormData> = (data) => {
@@ -77,7 +78,6 @@ export const RegisterForm = () => {
       <div className="relative w-full mb-[8px] md:mb-[16px]">
         <input
           {...register("name")}
-          name="name"
           type="text"
           autoComplete="name"
           placeholder="Full name"
@@ -89,7 +89,6 @@ export const RegisterForm = () => {
       <div className="relative w-full mb-[8px] md:mb-[16px]">
         <input
           {...register("email")}
-          name="email"
           type="email"
           autoComplete="email"
           placeholder="Email"
@@ -101,7 +100,6 @@ export const RegisterForm = () => {
       <div className="relative w-full mb-[8px] md:mb-[16px]">
         <input
           {...register("date")}
-          name="date"
           type={isDateFocused ? "date" : "text"}
           max={format(new Date(), "yyyy-MM-dd")}
           autoComplete="bday-day webauthn"
@@ -114,7 +112,7 @@ export const RegisterForm = () => {
       </div>
 
       <div className="mb-6 md:mb-10">
-        <p className="mb-[6px] text-[16px] md:text-[18px] text-textColor leading-[1.25]">
+        <p className="mb-[8px] text-[16px] md:text-[18px] text-textColor leading-[1.25]">
           Where did you hear about this event?
         </p>
         <div className="flex items-center justify-center gap-[8px]">
