@@ -13,8 +13,8 @@ export const EventsItem: React.FC<IEventItemProps> = ({
   index,
 }) => {
   return (
-    <li className="w-[320px] lg:w-[574px] bg-bgFirstLigtColor rounded-[24px] p-[34px] height-[318px] shadow-md transition-transform transform hover:scale-105 focus:scale-105">
-      <div className="flex flex-col-reverse items-center lg:items-start lg:flex-row lg:justify-between gap-[30px] lg:gap-[24px]">
+    <li className="flex flex-col w-[320px] lg:w-[574px] bg-bgFirstLigtColor rounded-[24px] p-[34px] height-[318px] shadow-md transition-transform transform hover:scale-105 focus:scale-105">
+      <div className="flex flex-col-reverse items-center lg:items-start lg:flex-row lg:justify-between gap-[30px] lg:gap-[24px] mb-auto">
         <div>
           <h3 className="font-medium text-center lg:text-start text-[18px] md:text-[20px] lg:text-[24px] leading-[1] text-darkColor mb-[24px]">
             {title}
@@ -32,19 +32,19 @@ export const EventsItem: React.FC<IEventItemProps> = ({
           <img
             src={logo_url}
             alt={organizer}
-            className="rounded-[15px]"
+            className="rounded-[15px] object-cover w-full h-full"
             width="140"
             height="112"
           />
         </div>
       </div>
 
-      <div>
+      <div className="flex flex-col justify-between grow">
         <p className="w-full font-normal text-[16px] leading-[1.25] text-secondTextColor mb-[14px]">
           {description}
         </p>
 
-        <div className="flex justify-between">
+        <div className="flex justify-between mt-auto">
           <Link className="description link" to={`/registration/${index}`}>
             Register
           </Link>

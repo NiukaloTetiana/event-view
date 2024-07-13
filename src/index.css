@@ -50,6 +50,10 @@ body {
   font-weight: 400;
 }
 
+input {
+  outline: none;
+}
+
 .description {
   @apply pb-[2px] text-[14px] md:text-[16px] text-textColor leading-[1.25] active:text-hoverColor focus:text-hoverColor lg:hover:text-hoverColor transition duration-300;
 }
@@ -68,4 +72,24 @@ body {
 
 .link-back {
   @apply font-medium text-[16px] leading-[1.1] text-textColor link pb-[3px];
+}
+
+.label {
+  @apply flex items-center text-[14px] md:text-[16px] text-textColor leading-[1.25];
+}
+
+.custom-radio {
+  @apply relative inline-block h-4 w-4 bg-transparent border-2 border-hoverColor rounded-full align-top mr-1;
+}
+
+.custom-radio::before {
+  @apply absolute top-1/2 left-1/2 transform translate-x-[-50%] translate-y-[-50%] scale-0 content-[''] w-2 h-2 bg-accentColor rounded-full transition-transform duration-200 ease-in;
+}
+
+.real-radio {
+  @apply w-0 h-0 absolute opacity-0 z-[-1];
+}
+
+.real-radio:checked + .custom-radio::before {
+  @apply scale-100;
 }

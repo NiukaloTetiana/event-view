@@ -1,18 +1,24 @@
 import { Link } from "react-router-dom";
 import { RiArrowRightDoubleLine } from "react-icons/ri";
 
+import { RegisterForm } from "../components";
+
 const EventRegistration = () => {
   return (
     <div className="container pt-[64px] pb-[100px]">
-      <div className="flex gap-1 mb-[32px]">
-        <Link to="/board" className="flex gap-1 items-center link-back">
+      <div className="flex items-center mb-[32px]">
+        <Link to="/board" className="link-back">
           Events board
-          <RiArrowRightDoubleLine size="18px" className="fill-current" />
         </Link>
+
+        <RiArrowRightDoubleLine size={20} className="fill-current" />
+
         <Link to={"/participants/id"} className="link-back">
           Participants
         </Link>
       </div>
+
+      <RegisterForm />
     </div>
   );
 };
