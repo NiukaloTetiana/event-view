@@ -7,3 +7,5 @@ export * from "./EventsList/EventsItem";
 export * from "./EventsList/EventsList";
 export * from "./Sort/Sort";
 export * from "./RegisterForm/RegisterForm";
+export * from "./ParticipantsList/ParticipantsList";
+export * from "./ParticipantsList/ParticipantsItem";

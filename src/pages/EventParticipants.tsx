@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { RiArrowRightDoubleLine } from "react-icons/ri";
 
+import participants from "../assets/participants.json";
+import { ParticipantsList } from "../components";
+
 const EventParticipants = () => {
   return (
     <div className="container pt-[64px] pb-[100px]">
@@ -15,6 +18,8 @@ const EventParticipants = () => {
           Register
         </Link>
       </div>
+
+      <ParticipantsList participants={participants} />
     </div>
   );
 };

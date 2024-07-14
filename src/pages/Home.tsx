@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { BsArrowUpRight } from "react-icons/bs";
+import { CgArrowTopRight } from "react-icons/cg";
 
 import welcome from "../assets/images/welcome.png";
 import { useEffect } from "react";
@@ -37,13 +37,13 @@ const Home = () => {
         <button
           type="button"
           onClick={() => navigate("/board")}
-          className="flex gap-[18px] justify-center items-center border border-transparent bg-accentColor rounded-[30px] py-[18px] w-[200px] lg:w-[230px] font-medium text-[18px] lg:text-[20px] text-bgFirstLigtColor
+          className="flex gap-[10px] justify-center items-center border border-transparent bg-accentColor rounded-[30px] py-[18px] h-[59px] w-[200px] lg:w-[230px] font-medium text-[18px] lg:text-[20px] text-bgFirstLigtColor
       leading-[1.2] tracking-[-0.01em] primary-btn-hover group"
         >
           Get started
-          <BsArrowUpRight
+          <CgArrowTopRight
             className="fill-current group-hover:rotate-[45deg] transition duration-500"
-            size="20"
+            size="24"
           />
         </button>
       </div>

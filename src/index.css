@@ -67,7 +67,7 @@ input {
 }
 
 .item {
-  @apply self-start bg-lightColor rounded-[20px] md:rounded-[24px] px-[16px] py-[8px] md:px-[10px] md:py-[5px] lg:px-[16px] lg:py-[8px] shadow-md;
+  @apply self-start bg-lightColor rounded-[20px] md:rounded-[24px] px-[16px] py-[8px] md:px-[8px] md:py-[5px] lg:px-[16px] lg:py-[8px] shadow-md;
 }
 
 .link-back {
