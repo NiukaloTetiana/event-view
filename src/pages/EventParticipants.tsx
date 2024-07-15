@@ -7,6 +7,7 @@ import { ParticipantsList, Filter } from "../components";
 
 const EventParticipants = () => {
   const [filter, setFilter] = useState("");
+  console.log(filter);
 
   const handleChangeFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFilter(event.target.value);
