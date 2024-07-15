@@ -88,9 +88,7 @@ export const RegisterForm = () => {
       className="bg-bgFirstLigtColor rounded-[30px] py-12 px-8 md:p-12 sm-max:py-9 sm-max:px-6 flex flex-col md:flex-row md:flex-wrap gap-x-[8px] w-full md:w-[472px] mx-auto shadow-lg"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <h2 className="font-medium text-[30px] leading-[1.2] tracking-[-0.02em] text-darkColor mb-3 md:mb-5 sm-max:text-[25px] lg:text-[40px]">
-        Event Registration
-      </h2>
+      <h2 className="title">Event Registration</h2>
       <p className="text-[14px] md:text-[16px] text-secondTextColor leading-[1.25] w-[260px] sm-max:w-[220px] md:w-[350px] lg:w-[450px] mb-5 lg:mb-10">
         Join us for an exciting event, [Event Name]. Please fill out the form
         below to secure your spot. We look forward to seeing you there!

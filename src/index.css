@@ -54,6 +54,10 @@ input {
   outline: none;
 }
 
+.title {
+  @apply font-medium text-[30px] leading-[1.2] tracking-[-0.02em] text-darkColor mb-3 md:mb-5 sm-max:text-[25px] lg:text-[40px];
+}
+
 .description {
   @apply pb-[2px] text-[14px] md:text-[16px] text-textColor leading-[1.25] active:text-hoverColor focus:text-hoverColor lg:hover:text-hoverColor transition duration-300;
 }
