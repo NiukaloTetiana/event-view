@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { RiArrowRightDoubleLine } from "react-icons/ri";
 
 import participants from "../assets/participants.json";
-import { ParticipantsList, Filter } from "../components";
+import { ParticipantsList, Filter, Loader } from "../components";
 
 const EventParticipants = () => {
   const [filter, setFilter] = useState("");
@@ -12,6 +12,8 @@ const EventParticipants = () => {
   const handleChangeFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFilter(event.target.value);
   };
+
+  if (!participants) return <Loader />;
 
   return (
     <div className="container pt-[64px] pb-[100px]">
@@ -30,6 +32,10 @@ const EventParticipants = () => {
       <h2 className="title">Event participants</h2>
       <Filter onChange={handleChangeFilter} />
       <ParticipantsList participants={participants} />
+
+      {participants.length ? (
+        <h2 className="title text-center">No results for "{filter}".</h2>
+      ) : null}
     </div>
   );
 };
