@@ -1,11 +1,22 @@
-import { EventsList, Sort } from "../components";
+import { useEffect, useState } from "react";
 
-import events from "../assets/events.json";
+import { EventsList, Loader, Sort } from "../components";
+import { getEvents } from "../services";
 
 const EventsBoard = () => {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    getEvents().then((res) => {
+      setEvents(res.events);
+    });
+  }, []);
+
   const handleSortChange = (option: string) => {
     console.log(option);
   };
+
+  if (!events.length) return <Loader />;
 
   return (
     <div className="container pt-[64px] pb-[100px]">
