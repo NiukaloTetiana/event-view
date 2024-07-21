@@ -7,7 +7,7 @@ interface IParticipantItemProps {
 }
 
 export const ParticipantsItem: React.FC<IParticipantItemProps> = ({
-  participant: { name, email, date },
+  participant: { name, email, dateOfRegistration },
 }) => {
   return (
     <li className="flex flex-col sm-max:w-full w-[300px] lg:w-[360px] bg-bgFirstLigtColor rounded-[24px] p-[34px] sm-max:px-[20px] md:px-[30px] shadow-md transition-transform transform hover:scale-105 focus:scale-105">
@@ -19,7 +19,7 @@ export const ParticipantsItem: React.FC<IParticipantItemProps> = ({
       </p>
       <p className="item font-normal text-[14px] md:text-[16px] leading-[1.25]">
         <span className="text-secondTextColor">Date of registration: </span>
-        {format(date, "PP")}
+        {format(dateOfRegistration, "PP")}
       </p>
     </li>
   );

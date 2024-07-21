@@ -10,8 +10,8 @@ export const ParticipantsList: React.FC<IParticipantsListProps> = ({
 }) => {
   return (
     <ul className="flex flex-wrap justify-center lg:justify-between gap-[35px]">
-      {participants.map((participant, index) => (
-        <ParticipantsItem key={index} {...{ participant, index }} />
+      {participants.map((participant) => (
+        <ParticipantsItem key={participant._id} {...{ participant }} />
       ))}
     </ul>
   );
