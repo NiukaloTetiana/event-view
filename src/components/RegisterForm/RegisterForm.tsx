@@ -1,26 +1,41 @@
-import { useEffect, useRef, useState } from "react";
+import { useParams } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { format, parse } from "date-fns";
+import { format } from "date-fns";
 
 import { ParticipantRegisterSchema } from "../../schemas";
+import { addParticipant, getEventById } from "../../services";
+import { IEvent, Source } from "../../types";
+import { useEffect, useState } from "react";
 
 interface IFormData {
   name: string;
   email: string;
-  date: Date;
-  eventAdvertisementSource: string;
+  dateOfBirth: Date;
+  eventAdvertisementSource: Source;
 }
 
 export const RegisterForm = () => {
-  const inputRef = useRef<HTMLInputElement>(null);
+  const { id } = useParams();
+  const [event, setEvent] = useState<IEvent | null>(null);
+  // const [dateValue, setDateValue] = useState("");
 
-  const [isDateFocused, setIsDateFocused] = useState(false);
-  const [dateValue, setDateValue] = useState("");
+  useEffect(() => {
+    if (!id) return;
+
+    getEventById(id)
+      .then((res) => {
+        setEvent(res);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, [id]);
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, dirtyFields },
   } = useForm<IFormData>({
     mode: "onChange",
@@ -30,20 +45,17 @@ export const RegisterForm = () => {
     },
   });
 
-  useEffect(() => {
-    if (dateValue && inputRef.current) {
-      const { type } = inputRef.current;
-      if (type === "text") {
-        const parsedDate = parse(dateValue, "yyyy-MM-dd", new Date());
-        inputRef.current.value = format(parsedDate, "dd.MM.yyyy");
-      } else {
-        inputRef.current.value = dateValue;
-      }
-    }
-  }, [isDateFocused, dateValue]);
-
   const onSubmit: SubmitHandler<IFormData> = (data) => {
-    console.log(data);
+    const dateOfRegistration = new Date();
+    id &&
+      addParticipant({ ...data, dateOfRegistration, eventId: id })
+        .then((res) => {
+          console.log(res);
+          reset();
+        })
+        .catch((e) => {
+          console.log(e);
+        });
   };
 
   const inputClass = (fieldName: keyof typeof dirtyFields) => {
@@ -90,8 +102,9 @@ export const RegisterForm = () => {
     >
       <h2 className="title">Event Registration</h2>
       <p className="text-[14px] md:text-[16px] text-secondTextColor leading-[1.25] w-[260px] sm-max:w-[220px] md:w-[350px] lg:w-[450px] mb-5 lg:mb-10">
-        Join us for an exciting event, [Event Name]. Please fill out the form
-        below to secure your spot. We look forward to seeing you there!
+        Join us for an exciting event,{" "}
+        <span className="text-textColor">{event?.title}</span>. Please fill out
+        the form below to secure your spot. We look forward to seeing you there!
       </p>
       <div className="relative w-full mb-[8px] md:mb-[16px]">
         <input
@@ -115,22 +128,16 @@ export const RegisterForm = () => {
       </div>
       <div className="relative w-full mb-[8px] md:mb-[16px]">
         <input
-          {...register("date")}
-          type={isDateFocused ? "date" : "text"}
+          {...register("dateOfBirth")}
+          type="date"
           max={format(new Date(), "yyyy-MM-dd")}
           autoComplete="bday-day webauthn"
-          placeholder="Date of birth"
-          onFocus={() => {
-            setIsDateFocused(true);
-          }}
-          onBlur={(event) => {
-            setIsDateFocused(false);
-            setDateValue(event?.target.value);
-          }}
-          className={inputClass("date")}
-          ref={inputRef}
+          placeholder="Date of birthday"
+          className={inputClass("dateOfBirth")}
+          // value={dateValue}
+          // onChange={(e) => setDateValue(e.target.value)}
         />
-        {renderMessage("date")}
+        {renderMessage("dateOfBirth")}
       </div>
       <div className="mb-6 md:mb-10">
         <p className="mb-[8px] text-[14px] sm-max:text-[12px] md:text-[18px] text-textColor leading-[1.25]">
