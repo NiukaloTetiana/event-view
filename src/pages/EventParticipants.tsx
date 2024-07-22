@@ -1,30 +1,39 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { RiArrowRightDoubleLine } from "react-icons/ri";
+import { toast } from "react-toastify";
 
 import { ParticipantsList, Filter, Loader } from "../components";
-import { IParticipant } from "../types";
+import { IEvent, IParticipant } from "../types";
 import { getEventById, getParticipantsByEventId } from "../services";
+import { getFilterParticipants } from "../helpers";
 
 const EventParticipants = () => {
   const { id } = useParams();
-  const [participants, setParticipants] = useState<IParticipant[] | null>(null);
-  const [filter, setFilter] = useState("");
-  console.log(filter);
+  const [participants, setParticipants] = useState<IParticipant[]>([]);
+  const [event, setEvent] = useState<IEvent | null>(null);
+  const [filter, setFilter] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     if (!id) return;
 
     getEventById(id)
-      .then(() => {
+      .then((res) => {
+        setEvent(res);
         getParticipantsByEventId(id)
-          .then(setParticipants)
+          .then((data) => {
+            setParticipants(data);
+            setLoading(false);
+          })
           .catch((e) => {
-            e.response.data.message;
+            toast.error(e.response.data.message);
+            setLoading(false);
           });
       })
       .catch((e) => {
-        e.response.data.message;
+        toast.error(e.response.data.message);
+        setLoading(false);
       });
   }, [id]);
 
@@ -32,7 +41,9 @@ const EventParticipants = () => {
     setFilter(event.target.value);
   };
 
-  if (!participants) return <Loader />;
+  const filteredParticipants = getFilterParticipants(filter, participants);
+
+  if (loading) return <Loader />;
 
   return (
     <div className="container pt-[64px] pb-[100px]">
@@ -48,12 +59,21 @@ const EventParticipants = () => {
         </Link>
       </div>
 
-      <h2 className="title">Event participants</h2>
-      <Filter onChange={handleChangeFilter} />
-      <ParticipantsList participants={participants} />
+      <h2 className="title">
+        <span className="text-accentColor">"{event?.title}"</span> event
+        participants
+      </h2>
+      {participants.length ? <Filter onChange={handleChangeFilter} /> : null}
+      <ParticipantsList participants={filteredParticipants} />
 
-      {participants.length ? (
-        <h2 className="title text-center">No results for "{filter}".</h2>
+      {!filteredParticipants.length && filter ? (
+        <h2 className="title text-center">
+          No results for <span className="text-accentColor">"{filter}"</span>
+        </h2>
+      ) : participants.length === 0 ? (
+        <h2 className="title text-center">
+          No participants registered for this event yet.
+        </h2>
       ) : null}
     </div>
   );

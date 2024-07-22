@@ -8,3 +8,8 @@ export interface IEvent {
 }
 
 export interface IEventWithoutId extends Omit<IEvent, "_id"> {}
+
+export interface IEventsResponse {
+  events: IEvent[];
+  total: number;
+}

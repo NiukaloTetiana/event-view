@@ -103,8 +103,11 @@ export const RegisterForm = () => {
       <h2 className="title">Event Registration</h2>
       <p className="text-[14px] md:text-[16px] text-secondTextColor leading-[1.25] w-[260px] sm-max:w-[220px] md:w-[350px] lg:w-[450px] mb-5 lg:mb-10">
         Join us for an exciting event,{" "}
-        <span className="text-textColor">{event?.title}</span>. Please fill out
-        the form below to secure your spot. We look forward to seeing you there!
+        <span className="font-semibold text-textColor">
+          <br /> {event?.title}.<br />
+        </span>{" "}
+        Please fill out the form below to secure your spot. We look forward to
+        seeing you there!
       </p>
       <div className="relative w-full mb-[8px] md:mb-[16px]">
         <input

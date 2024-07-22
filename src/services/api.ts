@@ -1,5 +1,10 @@
 import axios from "axios";
-import { IEvent, IParticipant, IParticipantNoId } from "../types";
+import {
+  IEvent,
+  IEventsResponse,
+  IParticipant,
+  IParticipantNoId,
+} from "../types";
 
 const BASE_URL = "http://localhost:3000/api";
 
@@ -10,7 +15,7 @@ const instance = axios.create({
 export const getEvents = async (
   page: number = 1,
   query: string = ""
-): Promise<IEvent[]> => {
+): Promise<IEventsResponse> => {
   const { data } = await instance.get(`/events?${query}`, { params: { page } });
 
   return data;
