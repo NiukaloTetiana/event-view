@@ -1,13 +1,32 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { RiArrowRightDoubleLine } from "react-icons/ri";
 
-import participants from "../assets/participants.json";
 import { ParticipantsList, Filter, Loader } from "../components";
+import { IParticipant } from "../types";
+import { getEventById, getParticipantsByEventId } from "../services";
 
 const EventParticipants = () => {
+  const { id } = useParams();
+  const [participants, setParticipants] = useState<IParticipant[] | null>(null);
   const [filter, setFilter] = useState("");
   console.log(filter);
+
+  useEffect(() => {
+    if (!id) return;
+
+    getEventById(id)
+      .then(() => {
+        getParticipantsByEventId(id)
+          .then(setParticipants)
+          .catch((e) => {
+            e.response.data.message;
+          });
+      })
+      .catch((e) => {
+        e.response.data.message;
+      });
+  }, [id]);
 
   const handleChangeFilter = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFilter(event.target.value);
@@ -24,7 +43,7 @@ const EventParticipants = () => {
 
         <RiArrowRightDoubleLine size={20} className="fill-current" />
 
-        <Link to={"/registration/id"} className="link-back">
+        <Link to={`/registration/${id}`} className="link-back">
           Register
         </Link>
       </div>

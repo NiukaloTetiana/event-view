@@ -67,7 +67,7 @@ input {
 }
 
 .primary-btn-hover {
-  @apply active:bg-hoverColor focus:bg-hoverColor lg:hover:bg-hoverColor transition duration-300;
+  @apply active:bg-hoverColor focus:bg-hoverColor lg:hover:bg-hoverColor lg:hover:shadow-xl focus:shadow-xl transition duration-300;
 }
 
 .item {

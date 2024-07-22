@@ -1,5 +1,5 @@
+import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
-import { CgArrowTopRight } from "react-icons/cg";
 
 import welcome from "../assets/images/welcome.png";
 import { useEffect } from "react";
@@ -41,9 +41,9 @@ const Home = () => {
       leading-[1.2] tracking-[-0.01em] primary-btn-hover group"
         >
           Get started
-          <CgArrowTopRight
-            className="fill-current group-hover:rotate-[45deg] transition duration-500"
-            size="24"
+          <HiOutlineArrowNarrowRight
+            className="fill-current group-hover:translate-x-[7px] transition-transform duration-500"
+            size="22"
           />
         </button>
       </div>

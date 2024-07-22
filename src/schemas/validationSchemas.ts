@@ -1,6 +1,7 @@
 import * as yup from "yup";
 
 import { emailRegExp } from "../constants/emailRegExp";
+import { Source } from "../types";
 
 export const ParticipantRegisterSchema = yup.object({
   name: yup
@@ -14,6 +15,12 @@ export const ParticipantRegisterSchema = yup.object({
     .email("Enter a valid email")
     .matches(emailRegExp, "Enter a valid email")
     .max(64, "Max length must be less than 64 chars"),
-  date: yup.date().required("Date of birth is required"),
-  eventAdvertisementSource: yup.string().required("Event source is required"),
+  dateOfBirth: yup
+    .date()
+    .required("Date of birth is required")
+    .max(new Date(), "Date cannot be in the future"),
+  eventAdvertisementSource: yup
+    .mixed<Source>()
+    .oneOf(["Social media", "Friends", "Found myself"])
+    .required("Event source is required"),
 });

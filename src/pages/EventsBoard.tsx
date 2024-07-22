@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 
 import { EventsList, Loader, Sort } from "../components";
 import { getEvents } from "../services";
+import { IEvent } from "../types";
 
 const EventsBoard = () => {
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState<IEvent[]>([]);
 
   useEffect(() => {
     getEvents().then((res) => {
