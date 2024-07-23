@@ -12,9 +12,9 @@ export const ThemeToggle = () => {
       className="flex justify-center items-center bg-textColor rounded-[50%] shadow-md cursor-pointer p-2 pointer-events-auto lg:hover:bg-hoverColor lg:hover:shadow-lg transition duration-300"
     >
       {theme === "light" ? (
-        <BsMoonStars className="fill-bgFirstColor size-4" />
+        <BsMoonStars className="fill-bgFirstColor size-4 sm-max:size-[14px]" />
       ) : (
-        <GiSun className="fill-accentColor size-4" />
+        <GiSun className="fill-accentColor size-4 sm-max:size-[14px]" />
       )}
     </button>
   );
