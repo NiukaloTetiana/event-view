@@ -13,7 +13,7 @@ const EventRegistration = () => {
           Events board
         </Link>
 
-        <RiArrowRightDoubleLine size={20} className="fill-current" />
+        <RiArrowRightDoubleLine size={20} className="fill-textColor" />
 
         <Link to={`/participants/${id}`} className="link-back">
           Participants

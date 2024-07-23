@@ -11,10 +11,10 @@ export const EventsItem: React.FC<IEventItemProps> = ({
   event: { _id, title, description, event_date, organizer, logo_url },
 }) => {
   return (
-    <li className="flex flex-col w-[320px] lg:w-[574px] bg-bgFirstLigtColor rounded-[24px] p-[34px] height-[318px] shadow-md transition-transform transform hover:scale-105 focus:scale-105">
+    <li className="flex flex-col w-[320px] lg:w-[574px] bg-bgFirstColor rounded-[24px] p-[34px] height-[318px] shadow-md transition-transform transform hover:scale-105 focus:scale-105">
       <div className="flex flex-col-reverse items-center lg:items-start lg:flex-row lg:justify-between gap-[30px] lg:gap-[24px] mb-auto">
         <div>
-          <h3 className="font-medium text-center lg:text-start text-[18px] md:text-[20px] lg:text-[24px] leading-[1] text-darkColor mb-[24px]">
+          <h3 className="font-medium text-center lg:text-start text-[18px] md:text-[20px] lg:text-[24px] leading-[1] text-textColor mb-[24px]">
             {title}
           </h3>
 

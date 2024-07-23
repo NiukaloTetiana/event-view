@@ -41,18 +41,18 @@ export const Sort = ({ onSortChange }: ISortProps) => {
       <div
         ref={sortRef}
         onClick={handleListClick}
-        className="flex items-center justify-between bg-accentColor rounded-[14px] px-[18px] py-[16px] w-[180px] md:w-[226px] font-medium text-[16px] leading-[1.1] text-lightColor cursor-pointer hover:bg-hoverColor focus:bg-hoverColor transition duration-300 group"
+        className="flex items-center justify-between bg-accentColor rounded-[14px] px-[18px] py-[16px] w-[180px] md:w-[226px] font-medium text-[16px] leading-[1.1] text-bgFirstColor cursor-pointer hover:bg-hoverColor focus:bg-hoverColor transition duration-300 group"
       >
         {selectedSort}
         <IoIosArrowDown
-          className={`stroke-none fill-bgFirstLigtColor transition duration-300 ${
+          className={`stroke-none fill-bgFirstColor transition duration-300 ${
             isListVisible ? "rotate-180" : ""
           }`}
           size="20"
         />
       </div>
       {isListVisible && (
-        <ul className="absolute top-[88px] left-0 bg-whiteColor rounded-[14px] px-[18px] py-[16px] w-[180px] md:w-[226px] font-normal text-[16px] leading-[1.1] text-secondTextColor space-y-[8px] z-[2] shadow-list-shadow">
+        <ul className="absolute top-[88px] left-0 bg-bgBodyColor rounded-[14px] px-[18px] py-[16px] w-[180px] md:w-[226px] font-normal text-[16px] leading-[1.1] text-secondTextColor space-y-[8px] z-[2] shadow-lg">
           {[
             "None",
             "Newest",

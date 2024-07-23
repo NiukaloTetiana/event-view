@@ -42,20 +42,50 @@
   font-stretch: normal;
   font-display: swap;
 }
+/* Themes */
+
+html[data-theme="light"] {
+  --accent-color: #54be96;
+  --white-color: #fff;
+  --light-color: #f3f3f3;
+  --hover-color: #36a379;
+  --text-color: #191a15;
+  --second-text-color: #191a157f;
+  --border-color: #191a154d;
+  --bg-first-color: #fbfbfb;
+  --bg-second-color: #eff7f4;
+  --bg-body-color: #f3f3f3;
+  --shadow-color: #0000001a;
+  --shadow-color-light: #0000000d;
+}
+
+html[data-theme="dark"] {
+  --accent-color: #2c986f;
+  --white-color: #2f3333;
+  --light-color: #616262;
+  --hover-color: #7eebc1;
+  --text-color: #e6e5ea;
+  --second-text-color: #f3f2f780;
+  --border-color: #e6e5ea19;
+  --bg-first-color: #040404;
+  --bg-second-color: #1d7552;
+  --bg-body-color: #0c0c0c;
+  --shadow-color: #ffffff1a;
+  --shadow-color-light: #ffffff0d;
+}
+
 /* --------------- */
 
 body {
-  background-color: #f3f3f3;
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
+  @apply bg-bgBodyColor font-inter font-normal;
 }
 
 input {
-  outline: none;
+  @apply outline-none;
 }
 
 .title {
-  @apply font-medium text-[30px] leading-[1.2] tracking-[-0.02em] text-darkColor mb-3 md:mb-5 sm-max:text-[25px] lg:text-[40px];
+  @apply font-medium text-[30px] leading-[1.2] tracking-[-0.02em] text-textColor mb-3 md:mb-5 sm-max:text-[25px] lg:text-[40px];
 }
 
 .description {

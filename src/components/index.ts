@@ -12,4 +12,5 @@ export * from "./ParticipantsList/ParticipantsList";
 export * from "./ParticipantsList/ParticipantsItem";
 export * from "./Filter/Filter";
 export * from "./Modal/Modal";
+export * from "./ThemeToggle/ThemeToggle";
 // export * from "./AuthForm/AuthForm";
