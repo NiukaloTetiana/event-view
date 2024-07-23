@@ -10,14 +10,14 @@ const Home = () => {
   useEffect(() => {
     document.body.classList.add(
       "bg-gradient-to-r",
-      "from-bgFirstLigtColor",
-      "to-bgSecondLightColor"
+      "from-bgFirstColor",
+      "to-bgSecondColor"
     );
     return () => {
       document.body.classList.remove(
         "bg-gradient-to-r",
-        "from-bgFirstLigtColor",
-        "to-bgSecondLightColor"
+        "from-bgFirstColor",
+        "to-bgSecondColor"
       );
     };
   }, []);
