@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
-
 import { EventsList, Loader, Sort } from "../components";
 import { getEvents } from "../services";
 import { IEvent } from "../types";
@@ -10,6 +9,8 @@ const EventsBoard = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [isMoreItems, setIsMoreItems] = useState(true);
+  const [sortValue, setSortValue] = useState<string>("");
+  const [sortLabel, setSortLabel] = useState<string>("None");
 
   const observerTarget = useRef(null);
 
@@ -22,9 +23,9 @@ const EventsBoard = () => {
         if (entries[0].isIntersecting) {
           if (!isMoreItems) return;
           setIsLoading(true);
-          getEvents(page)
+          getEvents({ page, limit }, sortValue)
             .then((res) => {
-              setEvents([...events, ...res.events]);
+              setEvents((prevEvents) => [...prevEvents, ...res.events]);
               setPage((prev) => prev + 1);
 
               const isMoreEvents = page < Math.ceil(res.total / limit);
@@ -35,7 +36,7 @@ const EventsBoard = () => {
               }
             })
             .catch((e) => {
-              toast.error(e.response.data.message);
+              toast.error(e.response?.data?.message || "An error occurred.");
             })
             .finally(() => {
               setIsLoading(false);
@@ -53,16 +54,25 @@ const EventsBoard = () => {
         observer.unobserve(currentTarget);
       }
     };
-  }, [events, isMoreItems, page]);
+  }, [isMoreItems, page, sortValue]);
 
-  const handleSortChange = (option: string) => {
-    console.log(option);
+  const handleSortChange = (label: string, value: string) => {
+    setSortLabel(label);
+    setSortValue(value);
+    setPage(1);
+    setEvents([]);
+    setIsMoreItems(true);
   };
 
   return (
     <div className="container pt-[64px] pb-[100px]">
-      <Sort onSortChange={handleSortChange} />
-      <EventsList events={events} />
+      {events.length ? (
+        <>
+          <Sort onSortChange={handleSortChange} sortLabel={sortLabel} />
+          <EventsList events={events} />
+        </>
+      ) : null}
+
       <div ref={observerTarget}></div>
       {isLoading && <Loader />}
     </div>

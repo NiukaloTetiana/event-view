@@ -1,36 +1,36 @@
 import { useState, useEffect, useRef, RefObject } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import { sortOptions } from "../../constants";
 
 interface ISortProps {
-  onSortChange: (sortOption: string) => void;
+  onSortChange: (label: string, value: string) => void;
+  sortLabel: string;
 }
 
-export const Sort = ({ onSortChange }: ISortProps) => {
+export const Sort = ({ onSortChange, sortLabel }: ISortProps) => {
   const [isListVisible, setIsListVisible] = useState<boolean>(false);
-  const [selectedSort, setSelectedSort] = useState("None");
   const sortRef: RefObject<HTMLDivElement> = useRef(null);
 
-  const handleListClick = () => {
-    setIsListVisible(!isListVisible);
-  };
-
-  const handleSortClick = (sortOption: string) => {
-    setSelectedSort(sortOption);
-    setIsListVisible(false);
-    onSortChange(sortOption);
-  };
-
   useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (sortRef.current && !sortRef.current.contains(event.target as Node)) {
+        setIsListVisible(false);
+      }
+    };
+
     document.addEventListener("click", handleClickOutside);
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (sortRef.current && !sortRef.current.contains(event.target as Node)) {
-      setIsListVisible(false);
-    }
+  const handleListClick = () => {
+    setIsListVisible(!isListVisible);
+  };
+
+  const handleSortClick = (label: string, value: string) => {
+    onSortChange(label, value);
+    setIsListVisible(false);
   };
 
   return (
@@ -43,7 +43,7 @@ export const Sort = ({ onSortChange }: ISortProps) => {
         onClick={handleListClick}
         className="flex items-center justify-between bg-accentColor rounded-[14px] px-[18px] py-[16px] w-[180px] md:w-[226px] font-medium text-[16px] leading-[1.1] text-bgFirstColor cursor-pointer hover:bg-hoverColor focus:bg-hoverColor transition duration-300 group"
       >
-        {selectedSort}
+        {sortLabel}
         <IoIosArrowDown
           className={`stroke-none fill-bgFirstColor transition duration-300 ${
             isListVisible ? "rotate-180" : ""
@@ -52,24 +52,16 @@ export const Sort = ({ onSortChange }: ISortProps) => {
         />
       </div>
       {isListVisible && (
-        <ul className="absolute top-[88px] left-0 bg-bgBodyColor rounded-[14px] px-[18px] py-[16px] w-[180px] md:w-[226px] font-normal text-[16px] leading-[1.1] text-secondTextColor space-y-[8px] z-[2] shadow-lg">
-          {[
-            "None",
-            "Newest",
-            "Oldest",
-            "Title A-Z",
-            "Title Z-A",
-            "Organizer A-Z",
-            "Organizer Z-A",
-          ].map((sortOption, index) => (
+        <ul className="absolute top-[88px] left-0 bg-whiteColor rounded-[14px] px-[18px] py-[16px] w-[180px] md:w-[226px] font-normal text-[16px] leading-[1.1] text-secondTextColor space-y-[8px] z-[2] shadow-lg">
+          {sortOptions.map(({ label, value }) => (
             <li
-              key={index}
-              onClick={() => handleSortClick(sortOption)}
+              key={value}
+              onClick={() => handleSortClick(label, value)}
               className={`cursor-pointer hover:text-textColor transition duration-300 ${
-                sortOption === selectedSort ? "text-textColor" : ""
+                label === sortLabel ? "text-textColor" : ""
               }`}
             >
-              {sortOption}
+              {label}
             </li>
           ))}
         </ul>
