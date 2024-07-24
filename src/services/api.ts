@@ -6,17 +6,22 @@ import {
   IParticipantNoId,
 } from "../types";
 
-const BASE_URL = "http://localhost:3000/api";
+const BASE_URL = "https://event-view-backend.onrender.com/api";
 
 const instance = axios.create({
   baseURL: BASE_URL,
 });
 
+interface IGetEventsParams {
+  page: number;
+  limit: number;
+}
+
 export const getEvents = async (
-  page: number = 1,
+  params: IGetEventsParams,
   query: string = ""
 ): Promise<IEventsResponse> => {
-  const { data } = await instance.get(`/events?${query}`, { params: { page } });
+  const { data } = await instance.get(`/events?${query}`, { params });
 
   return data;
 };
