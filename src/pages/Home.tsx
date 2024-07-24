@@ -37,8 +37,7 @@ const Home = () => {
         <button
           type="button"
           onClick={() => navigate("/board")}
-          className="flex gap-[10px] justify-center items-center border border-transparent bg-accentColor rounded-[30px] py-[18px] h-[59px] w-[200px] lg:w-[230px] font-medium text-[18px] lg:text-[20px] text-bgFirstColor
-      leading-[1.2] tracking-[-0.01em] primary-btn-hover group"
+          className="flex gap-[10px] justify-center items-center border border-transparent bg-accentColor rounded-[30px] py-[18px] h-[59px] w-[200px] lg:w-[230px] font-medium text-[18px] lg:text-[20px] text-bgFirstColor leading-[1.2] tracking-[-0.01em] primary-btn-hover lg:hover:shadow-xl focus:shadow-xl group"
         >
           Get started
           <HiOutlineArrowNarrowRight
@@ -49,7 +48,7 @@ const Home = () => {
       </div>
 
       <img
-        // srcSet={`${welcome1x} 1x, ${welcome2x} 2x`}
+        // src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSNwRr7aDtavtzWnuhFigErQqey-KvpOfqZAt4RXc-1-BxtaDT3"
         src={welcome}
         alt="People are resting at event"
         width={318}
