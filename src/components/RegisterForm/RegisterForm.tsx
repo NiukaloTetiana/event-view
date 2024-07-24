@@ -9,6 +9,7 @@ import { ParticipantRegisterSchema } from "../../schemas";
 import { addParticipant, getEventById } from "../../services";
 import { IEvent, Source } from "../../types";
 import { Loader } from "../Loader/Loader";
+import { inputClass, renderMessage } from "../../helpers";
 
 interface IFormData {
   name: string;
@@ -21,7 +22,6 @@ export const RegisterForm = () => {
   const [event, setEvent] = useState<IEvent | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
-  // const [dateValue, setDateValue] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -69,43 +69,6 @@ export const RegisterForm = () => {
         });
   };
 
-  const inputClass = (fieldName: keyof typeof dirtyFields) => {
-    const baseClass =
-      "w-full h-[47px] bg-transparent border rounded-[12px] px-[18px] py-[14px] lg:py-[16px] font-normal text-[14px] lg:text-[16px] leading-[1.25] text-textColor placeholder:text-textColor hover:shadow hover:border-accentColor focus:border-accentColor transition duration-300";
-    const errorClass =
-      "border-red-700 hover:border-red-700 hover:shadow focus:border-red-700 transition duration-300";
-    const successClass =
-      "border-green-700 hover:border-green-700 hover:shadow focus:border-green-700 transition duration-300";
-
-    if (errors[fieldName] && dirtyFields[fieldName]) {
-      return `${baseClass} ${errorClass}`;
-    }
-    if (!errors[fieldName] && dirtyFields[fieldName]) {
-      return `${baseClass} ${successClass}`;
-    }
-    return baseClass;
-  };
-
-  const renderMessage = (fieldName: keyof typeof dirtyFields) => {
-    if (errors[fieldName] && dirtyFields[fieldName]) {
-      return (
-        <p className="text-red-700 text-[10px] md:text-[12px] font-normal absolute bottom-[-6px] left-[4px] px-[4px] bg-bgFirstColor">
-          {errors[fieldName]?.message}
-        </p>
-      );
-    }
-    if (!errors[fieldName] && dirtyFields[fieldName]) {
-      return (
-        <p className="text-green-700 text-[10px] md:text-[12px] font-normal absolute bottom-[-6px] left-[4px] px-[4px] bg-bgFirstColor">
-          {`${fieldName.charAt(0).toUpperCase()}${fieldName.slice(
-            1
-          )} is entered correctly`}
-        </p>
-      );
-    }
-    return null;
-  };
-
   return (
     <>
       <form
@@ -127,9 +90,9 @@ export const RegisterForm = () => {
             type="text"
             autoComplete="name"
             placeholder="Full name"
-            className={inputClass("name")}
+            className={inputClass(errors, dirtyFields, "name")}
           />
-          {renderMessage("name")}
+          {renderMessage(errors, dirtyFields, "name")}
         </div>
         <div className="relative w-full mb-[8px] md:mb-[16px]">
           <input
@@ -137,9 +100,9 @@ export const RegisterForm = () => {
             type="email"
             autoComplete="email"
             placeholder="Email"
-            className={inputClass("email")}
+            className={inputClass(errors, dirtyFields, "email")}
           />
-          {renderMessage("email")}
+          {renderMessage(errors, dirtyFields, "email")}
         </div>
         <div className="relative w-full mb-[8px] md:mb-[16px]">
           <input
@@ -148,11 +111,9 @@ export const RegisterForm = () => {
             max={format(new Date(), "yyyy-MM-dd")}
             autoComplete="bday-day webauthn"
             placeholder="Date of birthday"
-            className={inputClass("dateOfBirth")}
-            // value={dateValue}
-            // onChange={(e) => setDateValue(e.target.value)}
+            className={inputClass(errors, dirtyFields, "dateOfBirth")}
           />
-          {renderMessage("dateOfBirth")}
+          {renderMessage(errors, dirtyFields, "dateOfBirth")}
         </div>
         <div className="mb-6 md:mb-10">
           <p className="mb-[8px] text-[14px] sm-max:text-[12px] md:text-[18px] text-textColor leading-[1.25]">

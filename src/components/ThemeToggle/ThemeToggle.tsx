@@ -1,4 +1,4 @@
-import { GiSun } from "react-icons/gi";
+import { FaSun } from "react-icons/fa";
 import { BsMoonStars } from "react-icons/bs";
 
 import { useTheme } from "../../hooks";
@@ -14,7 +14,7 @@ export const ThemeToggle = () => {
       {theme === "light" ? (
         <BsMoonStars className="fill-bgFirstColor size-4 sm-max:size-[14px]" />
       ) : (
-        <GiSun className="fill-accentColor size-4 sm-max:size-[14px]" />
+        <FaSun className="fill-accentColor size-4 sm-max:size-[14px]" />
       )}
     </button>
   );
