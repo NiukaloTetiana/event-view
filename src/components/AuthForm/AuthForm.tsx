@@ -11,6 +11,7 @@ import {
   logInSchema,
 } from "../../schemas/validationSchemas";
 import { inputClass, renderMessage } from "../../helpers";
+import { loginUser, registerUser } from "../../services";
 
 interface FormData {
   name?: string;
@@ -21,13 +22,15 @@ interface FormData {
 interface AuthFormProps {
   registration: boolean;
   onClick: (value: boolean) => void;
-  handleRegistrationSuccess?: (name: string) => void;
+  toggleModal: () => void;
+  handleUserSession?: (name: string) => void;
 }
 
 export const AuthForm = ({
   registration,
+  toggleModal,
+  handleUserSession,
   onClick,
-  handleRegistrationSuccess,
 }: AuthFormProps) => {
   const [showPass, setShowPass] = useState(false);
   const {
@@ -47,20 +50,26 @@ export const AuthForm = ({
 
   const onSubmit: SubmitHandler<FormData> = async ({
     name,
-    // email,
-    // password,
+    email,
+    password,
   }) => {
     try {
       if (registration) {
-        // await registrationUser(name, email, password);
-        handleRegistrationSuccess && handleRegistrationSuccess(name!);
-        toast.success(`Yohoo! ${name}, you are successfully registered!`);
+        await registerUser({ name, email, password }).then((res) => {
+          toggleModal();
+          toast.success(
+            `Yohoo! ${res.user.name}, you are successfully registered!`
+          );
+        });
       } else {
-        // await logInUser(email, password);
-        toast.success(`Welcome back!`);
+        await loginUser({ email, password }).then((res) => {
+          handleUserSession && handleUserSession(res.user.name);
+          toggleModal();
+          toast.success(`Welcome back, ${res.user.name}!`);
+        });
       }
     } catch (e) {
-      // toast.error(e.message);
+      console.log(e);
     }
   };
 

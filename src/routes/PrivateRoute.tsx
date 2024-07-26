@@ -1,12 +1,15 @@
 import { ReactNode } from "react";
 import { Navigate, useLocation } from "react-router-dom";
+import { useLocalStorage } from "../hooks";
 
 interface PrivateRouteProps {
   children: ReactNode;
-  user: boolean;
 }
 
-export const PrivateRoute = ({ children, user }: PrivateRouteProps) => {
+export const PrivateRoute = ({ children }: PrivateRouteProps) => {
+  const [user] = useLocalStorage("user", null);
+  console.log("user", user);
+
   const location = useLocation();
 
   if (!user) {

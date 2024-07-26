@@ -1,8 +1,10 @@
-import { lazy } from "react";
+import { lazy, useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
-import { Layout } from "../components";
+import { Layout, Loader } from "../components";
 import { PrivateRoute } from "../routes";
+import { useLocalStorage } from "../hooks";
+import { refreshUser } from "../services/api";
 
 const Home = lazy(() => import("../pages/Home"));
 const EventParticipants = lazy(() => import("../pages/EventParticipants"));
@@ -11,9 +13,22 @@ const EventsBoard = lazy(() => import("../pages/EventsBoard"));
 const EventsSchedule = lazy(() => import("../pages/EventsSchedule"));
 
 export const App = () => {
-  const user = true;
+  const [refreshToken] = useLocalStorage("refreshToken", null);
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
-  return (
+  useEffect(() => {
+    setIsRefreshing(true);
+
+    if (refreshToken) {
+      refreshUser(refreshToken);
+    }
+
+    setIsRefreshing(false);
+  }, [refreshToken]);
+
+  return isRefreshing ? (
+    <Loader />
+  ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
@@ -23,7 +38,7 @@ export const App = () => {
         <Route
           path="schedule"
           element={
-            <PrivateRoute user={user}>
+            <PrivateRoute>
               <EventsSchedule />
             </PrivateRoute>
           }

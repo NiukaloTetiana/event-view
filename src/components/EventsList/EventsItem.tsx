@@ -5,10 +5,12 @@ import { IEvent } from "../../types";
 
 interface IEventItemProps {
   event: IEvent;
+  hideRegister?: boolean;
 }
 
 export const EventsItem: React.FC<IEventItemProps> = ({
   event: { _id, title, description, event_date, organizer, logo_url },
+  hideRegister,
 }) => {
   return (
     <li className="flex flex-col w-[320px] lg:w-[574px] bg-bgFirstColor rounded-[24px] p-[34px] height-[318px] shadow-md transition-transform transform hover:scale-105 focus:scale-105">
@@ -43,9 +45,11 @@ export const EventsItem: React.FC<IEventItemProps> = ({
         </p>
 
         <div className="flex justify-between mt-auto">
-          <Link className="description link" to={`/registration/${_id}`}>
-            Register
-          </Link>
+          {!hideRegister && (
+            <Link className="description link" to={`/registration/${_id}`}>
+              Register
+            </Link>
+          )}
           <Link className="description link" to={`/participants/${_id}`}>
             View
           </Link>

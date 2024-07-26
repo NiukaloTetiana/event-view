@@ -27,7 +27,7 @@ export const Modal = ({
       onClick={(e) => handleClickOnBackdrop(toggleModal, e)}
     >
       <div
-        className={`relative rounded-[30px] bg-bgFirstColor sm-max:max-w-[300px] max-w-[330px] md:max-w-[700px] lg:max-w-[1180px] max-h-[95%] ${className}`}
+        className={`relative rounded-[30px] bg-bgFirstColor border border-borderColor shadow-lg sm-max:max-w-[300px] max-w-[330px] md:max-w-[700px] lg:max-w-[1180px] max-h-[95%] ${className}`}
       >
         <button
           type="button"

@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { VscChromeClose } from "react-icons/vsc";
 
-import { AuthButton, NavBar } from "../../components";
+import { AuthButton, NavBar, UserBar } from "../../components";
 import { useEscapeClose } from "../../hooks";
 import { handleClickOnBackdrop } from "../../helpers";
 
@@ -9,6 +9,7 @@ interface IBurgerMenuProps {
   classBackdrop: string;
   classMenu: string;
   isOpen: boolean;
+  userName: string;
   toggleMenu: () => void;
 }
 
@@ -17,10 +18,10 @@ export const BurgerMenu = ({
   classBackdrop,
   classMenu,
   isOpen,
+  userName,
 }: IBurgerMenuProps) => {
   const backdropRef = useRef(null);
-  // const user = true;
-
+  console.log(userName);
   useEscapeClose(isOpen, toggleMenu);
 
   return (
@@ -47,16 +48,16 @@ export const BurgerMenu = ({
           className="flex flex-col gap-4 items-center w-full"
           toggleMenu={toggleMenu}
         />
-        {/* {!user ? ( */}
-        <AuthButton
-          toggleMenu={toggleMenu}
-          className="flex flex-col justify-center items-center w-full gap-[10px] md:gap-[12px]"
-          classLogIn="border border-secondTextColor bg-transparent rounded-[30px] px-[38px] py-[14px] w-[220px] md:w-[270px] font-medium text-[16px] text-textColor leading-[1.25] tracking-[-0.01em] second-btn-hover"
-          classRegistration="bg-accentColor rounded-[30px] px-[40px] py-[14px] w-[220px] md:w-[270px] font-medium text-[16px] leading-[1.25] tracking-[-0.01em] text-bgFirstColor primary-btn-hover"
-        />
-        {/* // ) : (
-        //   <UserBar className="flex" toggleMenu={toggleMenu} />
-        // )} */}
+        {!userName ? (
+          <AuthButton
+            toggleMenu={toggleMenu}
+            className="flex flex-col justify-center items-center w-full gap-[10px] md:gap-[12px]"
+            classLogIn="border border-secondTextColor bg-transparent rounded-[30px] px-[38px] py-[14px] w-[220px] md:w-[270px] font-medium text-[16px] text-textColor leading-[1.25] tracking-[-0.01em] second-btn-hover"
+            classRegistration="bg-accentColor rounded-[30px] px-[40px] py-[14px] w-[220px] md:w-[270px] font-medium text-[16px] leading-[1.25] tracking-[-0.01em] text-bgFirstColor primary-btn-hover"
+          />
+        ) : (
+          <UserBar className="flex" toggleMenu={toggleMenu} />
+        )}
       </div>
     </div>
   );

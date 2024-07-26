@@ -6,7 +6,12 @@ import { format } from "date-fns";
 import { toast } from "react-toastify";
 
 import { ParticipantRegisterSchema } from "../../schemas";
-import { addParticipant, getEventById } from "../../services";
+import {
+  addEventUser,
+  addParticipant,
+  getCurrentUser,
+  getEventById,
+} from "../../services";
 import { IEvent, Source } from "../../types";
 import { Loader } from "../Loader/Loader";
 import { inputClass, renderMessage } from "../../helpers";
@@ -20,12 +25,21 @@ interface IFormData {
 
 export const RegisterForm = () => {
   const [event, setEvent] = useState<IEvent | null>(null);
+  const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!id) return;
+
+    getCurrentUser()
+      .then((data) => {
+        setUser(data);
+      })
+      .catch((e) => {
+        toast.error(e.response.data.message);
+      });
 
     getEventById(id)
       .then((res) => {
@@ -55,6 +69,12 @@ export const RegisterForm = () => {
     id &&
       addParticipant({ ...data, dateOfRegistration, eventId: id })
         .then(() => {
+          if (user) {
+            addEventUser(id).catch((e) => {
+              console.log(e);
+            });
+          }
+
           toast.success("You have been successfully registered for the event.");
           reset();
           setTimeout(() => {

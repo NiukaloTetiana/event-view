@@ -101,7 +101,7 @@ input {
 }
 
 .second-btn-hover {
-  @apply active:border-accentColor focus:border-accentColor lg:hover:border-accentColor active:text-accentColor focus:text-accentColor lg:hover:text-accentColor lg:hover:shadow-lg focus:shadow-lg transition duration-300;
+  @apply active:border-hoverColor focus:border-hoverColor lg:hover:border-hoverColor active:text-hoverColor focus:text-hoverColor lg:hover:text-hoverColor lg:hover:shadow-lg focus:shadow-lg transition duration-300;
 }
 
 .item {

@@ -7,7 +7,7 @@ interface IAuthButtonProps {
   className: string;
   classLogIn: string;
   classRegistration: string;
-  handleRegistrationSuccess?: (name: string) => void;
+  handleUserSession?: (name: string) => void;
   toggleMenu?: () => void;
 }
 
@@ -15,8 +15,8 @@ export const AuthButton = ({
   className,
   classLogIn,
   classRegistration,
-  handleRegistrationSuccess,
   toggleMenu,
+  handleUserSession,
 }: IAuthButtonProps) => {
   const [isOpenModal, toggleModal] = useModal();
   const [registration, setRegistration] = useState(false);
@@ -62,7 +62,8 @@ export const AuthButton = ({
           className="p-[37px] lg:p-[64px]"
         >
           <AuthForm
-            handleRegistrationSuccess={handleRegistrationSuccess}
+            handleUserSession={handleUserSession}
+            toggleModal={toggleModal}
             registration={registration}
             onClick={handleClick}
           />
