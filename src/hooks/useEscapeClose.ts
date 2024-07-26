@@ -2,8 +2,6 @@ import { useEffect } from "react";
 
 export const useEscapeClose = (isOpen: boolean, toggleModal: () => void) => {
   useEffect(() => {
-    if (!isOpen) return;
-
     const handleEscape = (e: KeyboardEvent): void => {
       if (e.code === "Escape") {
         toggleModal();
