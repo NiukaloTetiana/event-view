@@ -3,9 +3,14 @@ import { Link, NavLink } from "react-router-dom";
 interface INavBarProps {
   className: string;
   toggleMenu: () => void;
+  userName: string;
 }
 
-export const NavBar = ({ className = "", toggleMenu }: INavBarProps) => {
+export const NavBar = ({
+  className = "",
+  toggleMenu,
+  userName,
+}: INavBarProps) => {
   return (
     <nav className="flex flex-col gap-[80px] items-center justify-center lg:flex-row lg:gap-[180px]">
       <Link
@@ -24,9 +29,11 @@ export const NavBar = ({ className = "", toggleMenu }: INavBarProps) => {
         <li onClick={toggleMenu} className="link text-textColor">
           <NavLink to="board">Events</NavLink>
         </li>
-        <li onClick={toggleMenu} className="link text-textColor">
-          <NavLink to="schedule">Schedule</NavLink>
-        </li>
+        {userName && (
+          <li onClick={toggleMenu} className="link text-textColor">
+            <NavLink to="schedule">Schedule</NavLink>
+          </li>
+        )}
       </ul>
     </nav>
   );
