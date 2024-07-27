@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 
 interface INavBarProps {
   className: string;
-  toggleMenu: () => void;
+  toggleMenu?: () => void;
   userName: string;
 }
 

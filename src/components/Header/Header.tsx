@@ -22,7 +22,6 @@ export const Header = () => {
     <header className="border-b border-b-borderColor shadow-sm py-6 relative">
       <div className="container flex justify-between items-center">
         <NavBar
-          toggleMenu={toggleMenu}
           userName={userName}
           className="hidden lg:flex gap-[18px]"
         />

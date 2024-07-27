@@ -59,7 +59,7 @@ const EventParticipants = () => {
         </Link>
       </div>
 
-      <h2 className="title">
+      <h2 className="title mb-[32px]">
         <span className="text-accentColor">"{event?.title}"</span> event
         participants
       </h2>
