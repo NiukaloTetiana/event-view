@@ -3,10 +3,10 @@ import { Link, useParams } from "react-router-dom";
 import { RiArrowRightDoubleLine } from "react-icons/ri";
 import { toast } from "react-toastify";
 
-import { ParticipantsList, Filter, Loader } from "../components";
+import { ParticipantsList, Filter, Loader, Chart } from "../components";
 import { IEvent, IParticipant } from "../types";
 import { getEventById, getParticipantsByEventId } from "../services";
-import { getFilterParticipants } from "../helpers";
+import { getFilterParticipants, getRegistrationsPerDay } from "../helpers";
 
 const EventParticipants = () => {
   const { id } = useParams();
@@ -42,6 +42,7 @@ const EventParticipants = () => {
   };
 
   const filteredParticipants = getFilterParticipants(filter, participants);
+  const registrationData = getRegistrationsPerDay(participants);
 
   if (loading) return <Loader />;
 
@@ -64,14 +65,15 @@ const EventParticipants = () => {
         participants
       </h2>
       {participants.length ? <Filter onChange={handleChangeFilter} /> : null}
+      {participants.length ? <Chart data={registrationData} /> : null}
       <ParticipantsList participants={filteredParticipants} />
 
       {!filteredParticipants.length && filter ? (
-        <h2 className="title text-center">
+        <h2 className="title-sec">
           No results for <span className="text-accentColor">"{filter}"</span>
         </h2>
       ) : participants.length === 0 ? (
-        <h2 className="title text-center">
+        <h2 className=" title-sec">
           No participants registered for this event yet.
         </h2>
       ) : null}

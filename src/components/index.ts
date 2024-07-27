@@ -18,3 +18,4 @@ export * from "./Modal/Modal";
 export * from "./ThemeToggle/ThemeToggle";
 export * from "./AuthForm/AuthForm";
 export * from "./LogOut/LogOut";
+export * from "./Chart/Chart";
