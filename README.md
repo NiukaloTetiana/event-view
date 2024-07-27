@@ -8,7 +8,7 @@
 
 - Welcomes users with a site title, company slogan, and a call-to-action button redirecting to the "Events" page.
 
-![Home Page](./public/1.jpg)
+![Home Page](./public/1.png)
 
 **2. Events**
 
@@ -17,14 +17,14 @@
 - Supports sorting of events by date (newest/oldest), title (A-Z/Z-A), and organizer (A-Z/Z-A).
 - Implements infinite scrolling to load events dynamically as the user scrolls down the page.
 
-![Events Page](./public/2.jpg)
+![Events Page](./public/2.png)
 
 **Registration page**:
 
 - Provides a user-friendly form for event registration.
 - Form validation ensures accurate and complete user input.
 
-![Registration](./public/3.jpg)
+![Registration](./public/3.png)
 
 **Participants page**:
 
@@ -32,14 +32,14 @@
 - Enables search by full name or email for easy navigation.
 - Presents bar charts showing registrations per last week, offering insights into event popularity trends.
 
-  ![Participants](./public/4.jpg)
+  ![Participants](./public/4.png)
 
 **3. Schedule**
 
 - Private page accessible to authenticated users.
 - Displays a schedule of all events the user has registered for.
 
-![Schedule Page](./public/5.jpg)
+![Schedule Page](./public/5.png)
 
 ## Features
 
@@ -50,8 +50,8 @@
 - **Dark/Light Mode Toggle**: Switch between light and dark themes for a comfortable viewing experience in different lighting conditions.
 
 <div align="center" style="display: flex; gap: 10px; width: 100%;"> 
-<img src="./public/6.jpg" alt="Feature Registration" width="45%" />
-<img src="./public/7.jpg" alt="Feature Login" width="45%" />
+<img src="./public/6.png" alt="Feature Registration" width="45%" />
+<img src="./public/7.png" alt="Feature Login" width="45%" />
 </div>
 
 ## Technologies Used
