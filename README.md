@@ -70,6 +70,6 @@
 ## Deployment
 
 - This project is deployed on Vercel. Check it out: [**Event-View**](https://event-view.vercel.app/)
-- Here you can see back-end part of website: [**Event-View backend**](https://github.com/NiukaloTetiana/event-view-backend))
+- Here you can see back-end part of website: [**Event-View backend**](https://github.com/NiukaloTetiana/event-view-backend)
 
 Experience a seamless way to manage your events with "Event-View," your go-to platform for discovering and registering for exciting events.
