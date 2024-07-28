@@ -24,15 +24,15 @@ const EventParticipants = () => {
         getParticipantsByEventId(id)
           .then((data) => {
             setParticipants(data);
-            setLoading(false);
           })
           .catch((e) => {
             toast.error(e.response.data.message);
-            setLoading(false);
           });
       })
       .catch((e) => {
         toast.error(e.response.data.message);
+      })
+      .finally(() => {
         setLoading(false);
       });
   }, [id]);

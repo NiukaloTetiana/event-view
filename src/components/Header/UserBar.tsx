@@ -3,8 +3,8 @@ import { useModal } from "../../hooks";
 
 interface IUserBarProps {
   className?: string;
-  toggleMenu: () => void;
-  handleUserSession?: (name: string) => void;
+  toggleMenu?: () => void;
+  handleUserSession: (name: string, userLogout: string | null) => void;
 }
 
 export const UserBar = ({
@@ -16,7 +16,9 @@ export const UserBar = ({
 
   return (
     <div
-      className={`${className} flex-wrap lg:flex-nowrap justify-center items-center gap-[24px]`}
+      className={`${className} ${
+        toggleMenu ? "flex flex-wrap" : "hidden lg:flex lg:flex-nowrap"
+      }   justify-center items-center gap-[24px]`}
     >
       {isOpenModal && (
         <Modal

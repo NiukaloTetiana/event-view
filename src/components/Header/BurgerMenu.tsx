@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { VscChromeClose } from "react-icons/vsc";
 
 import { AuthButton, NavBar, UserBar } from "../../components";
-import { useEscapeClose } from "../../hooks";
+import { useEscapeClose, useLocalStorage } from "../../hooks";
 import { handleClickOnBackdrop } from "../../helpers";
 
 interface IBurgerMenuProps {
@@ -10,7 +10,9 @@ interface IBurgerMenuProps {
   classMenu: string;
   isOpen: boolean;
   userName: string;
+  userLogout: string | null;
   toggleMenu: () => void;
+  handleUserSession: (name: string, userLogout: string | null) => void;
 }
 
 export const BurgerMenu = ({
@@ -19,9 +21,12 @@ export const BurgerMenu = ({
   classMenu,
   isOpen,
   userName,
+  userLogout,
+  handleUserSession,
 }: IBurgerMenuProps) => {
   const backdropRef = useRef(null);
-  console.log(userName);
+  const [user] = useLocalStorage("user", null);
+
   useEscapeClose(isOpen, toggleMenu);
 
   return (
@@ -45,18 +50,25 @@ export const BurgerMenu = ({
         </button>
 
         <NavBar
+          userName={userName}
+          userLogout={userLogout}
           className="flex flex-col gap-4 items-center w-full"
           toggleMenu={toggleMenu}
         />
-        {!userName ? (
+        {(userName || user) && userLogout === "" ? (
+          <UserBar
+            handleUserSession={handleUserSession}
+            className="flex"
+            toggleMenu={toggleMenu}
+          />
+        ) : (
           <AuthButton
+            handleUserSession={handleUserSession}
             toggleMenu={toggleMenu}
             className="flex flex-col justify-center items-center w-full gap-[10px] md:gap-[12px]"
             classLogIn="border border-secondTextColor bg-transparent rounded-[30px] px-[38px] py-[14px] w-[220px] md:w-[270px] font-medium text-[16px] text-textColor leading-[1.25] tracking-[-0.01em] second-btn-hover"
             classRegistration="bg-accentColor rounded-[30px] px-[40px] py-[14px] w-[220px] md:w-[270px] font-medium text-[16px] leading-[1.25] tracking-[-0.01em] text-bgFirstColor primary-btn-hover"
           />
-        ) : (
-          <UserBar className="flex" toggleMenu={toggleMenu} />
         )}
       </div>
     </div>

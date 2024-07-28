@@ -3,10 +3,11 @@ import { toast } from "react-toastify";
 
 import { Loader } from "../../components";
 import { logOutUser } from "../../services";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface ILogOutProps {
   toggleLogOutModal: () => void;
-  handleUserSession?: (name: string) => void;
+  handleUserSession: (name: string, userLogout: string | null) => void;
 }
 
 export const LogOut = ({
@@ -15,12 +16,21 @@ export const LogOut = ({
 }: ILogOutProps) => {
   const [isLoading, setIsLoading] = useState(false);
 
+  const { pathname } = useLocation();
+
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     setIsLoading(true);
     logOutUser()
       .then(() => {
-        handleUserSession && handleUserSession("");
+        const user = localStorage.getItem("user");
+        const parsedUser = user ? JSON.parse(user) : null;
+        handleUserSession && handleUserSession("", parsedUser);
         toggleLogOutModal();
+        if (pathname === "/schedule") {
+          navigate("/home");
+        }
         toast.info(
           "In order to see all events for which you are registered, please log in."
         );

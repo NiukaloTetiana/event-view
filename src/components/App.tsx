@@ -17,13 +17,15 @@ export const App = () => {
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   useEffect(() => {
-    setIsRefreshing(true);
-
     if (refreshToken) {
-      refreshUser(refreshToken);
+      setIsRefreshing(true);
+      refreshUser(refreshToken)
+        .then()
+        .catch((e) => {
+          console.log(e);
+        })
+        .finally(() => setIsRefreshing(false));
     }
-
-    setIsRefreshing(false);
   }, [refreshToken]);
 
   return isRefreshing ? (
@@ -39,7 +41,7 @@ export const App = () => {
           path="schedule"
           element={
             <PrivateRoute>
-              <EventsSchedule />
+              <EventsSchedule isRefreshing={isRefreshing} />
             </PrivateRoute>
           }
         />

@@ -23,7 +23,7 @@ interface AuthFormProps {
   registration: boolean;
   onClick: (value: boolean) => void;
   toggleModal: () => void;
-  handleUserSession?: (name: string) => void;
+  handleUserSession: (name: string, userLogout: string | null) => void;
 }
 
 export const AuthForm = ({
@@ -53,23 +53,28 @@ export const AuthForm = ({
     email,
     password,
   }) => {
-    try {
-      if (registration) {
-        await registerUser({ name, email, password }).then((res) => {
+    if (registration) {
+      registerUser({ name, email, password })
+        .then((res) => {
+          handleUserSession && handleUserSession(res.user.name, "");
           toggleModal();
           toast.success(
             `Yohoo! ${res.user.name}, you are successfully registered!`
           );
+        })
+        .catch((e) => {
+          toast.error(e.message);
         });
-      } else {
-        await loginUser({ email, password }).then((res) => {
-          handleUserSession && handleUserSession(res.user.name);
+    } else {
+      loginUser({ email, password })
+        .then((res) => {
+          handleUserSession && handleUserSession(res.user.name, "");
           toggleModal();
           toast.success(`Welcome back, ${res.user.name}!`);
+        })
+        .catch((e) => {
+          toast.error(e.message);
         });
-      }
-    } catch (e) {
-      console.log(e);
     }
   };
 

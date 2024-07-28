@@ -48,7 +48,6 @@ const Home = () => {
       </div>
 
       <img
-        // src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSNwRr7aDtavtzWnuhFigErQqey-KvpOfqZAt4RXc-1-BxtaDT3"
         src={welcome}
         alt="People are resting at event"
         width={318}

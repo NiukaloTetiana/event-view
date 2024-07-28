@@ -8,7 +8,6 @@ interface PrivateRouteProps {
 
 export const PrivateRoute = ({ children }: PrivateRouteProps) => {
   const [user] = useLocalStorage("user", null);
-  console.log("user", user);
 
   const location = useLocation();
 

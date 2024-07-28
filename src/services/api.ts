@@ -19,11 +19,10 @@ interface IUserCredentials {
 
 const BASE_URL = "https://event-view-backend.onrender.com/api";
 
-const instance = axios.create({
+export const instance = axios.create({
   baseURL: BASE_URL,
   withCredentials: true,
 });
-
 export const setToken = (token: string) => {
   instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
@@ -78,7 +77,9 @@ export const registerUser = async (credentials: IUserCredentials) => {
     const { data } = await instance.post("/users/register", credentials);
     return data;
   } catch (error) {
-    console.log(error);
+    if (axios.isAxiosError(error)) {
+      throw new Error(error.response?.data.message);
+    }
   }
 };
 
@@ -90,7 +91,9 @@ export const loginUser = async (credentials: IUserCredentials) => {
     localStorage.setItem("user", JSON.stringify(data.user));
     return data;
   } catch (error) {
-    console.log(error);
+    if (axios.isAxiosError(error)) {
+      throw new Error(error.response?.data.message);
+    }
   }
 };
 
@@ -100,14 +103,18 @@ export const refreshUser = async (token: string) => {
       refreshToken: token,
     });
     setToken(data.accessToken);
-
-    const user = await getCurrentUser();
-    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("user", JSON.stringify(data.user));
     localStorage.setItem("refreshToken", JSON.stringify(data.refreshToken));
-    console.log("error");
     return data;
   } catch (error) {
-    console.log(error);
+    if (axios.isAxiosError(error)) {
+      if (error.response?.status === 401) {
+        clearToken();
+        localStorage.setItem("refreshToken", JSON.stringify(null));
+        localStorage.setItem("user", JSON.stringify(null));
+      }
+      throw new Error(error.message);
+    }
   }
 };
 
@@ -116,7 +123,9 @@ export const getCurrentUser = async () => {
     const { data } = await instance.get("/users/current");
     return data;
   } catch (error) {
-    console.log(error);
+    if (axios.isAxiosError(error)) {
+      throw new Error(error.response?.data.message);
+    }
   }
 };
 
@@ -125,7 +134,9 @@ export const getEventsUser = async () => {
     const { data } = await instance.get("/users/events");
     return data;
   } catch (error) {
-    console.log(error);
+    if (axios.isAxiosError(error)) {
+      throw new Error(error.response?.data.message);
+    }
   }
 };
 
@@ -134,7 +145,9 @@ export const addEventUser = async (eventId: string) => {
     const { data } = await instance.post("/users/events", { eventId });
     return data;
   } catch (error) {
-    console.log(error);
+    if (axios.isAxiosError(error)) {
+      throw new Error(error.response?.data.message);
+    }
   }
 };
 
@@ -142,10 +155,12 @@ export const logOutUser = async () => {
   try {
     const { data } = await instance.post("/users/logout");
     clearToken();
-    localStorage.setItem("refreshToken", JSON.stringify(""));
-    localStorage.removeItem("user");
+    localStorage.setItem("refreshToken", JSON.stringify(null));
+    localStorage.setItem("user", JSON.stringify(null));
     return data;
   } catch (error) {
-    console.log(error);
+    if (axios.isAxiosError(error)) {
+      throw new Error(error.response?.data.message);
+    }
   }
 };

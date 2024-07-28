@@ -7,7 +7,7 @@ interface IAuthButtonProps {
   className: string;
   classLogIn: string;
   classRegistration: string;
-  handleUserSession?: (name: string) => void;
+  handleUserSession: (name: string, userLogout: string | null) => void;
   toggleMenu?: () => void;
 }
 
@@ -32,7 +32,9 @@ export const AuthButton = ({
           <button
             type="button"
             onClick={() => {
-              if (toggleMenu) toggleMenu();
+              if (toggleMenu) {
+                toggleMenu();
+              }
               setRegistration(false);
               toggleModal();
             }}
@@ -45,7 +47,9 @@ export const AuthButton = ({
           <button
             type="button"
             onClick={() => {
-              if (toggleMenu) toggleMenu();
+              if (toggleMenu) {
+                toggleMenu();
+              }
               setRegistration(true);
               toggleModal();
             }}

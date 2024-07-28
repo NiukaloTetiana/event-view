@@ -1,16 +1,21 @@
 import { Link, NavLink } from "react-router-dom";
+import { useLocalStorage } from "../../hooks";
 
 interface INavBarProps {
   className: string;
   toggleMenu?: () => void;
   userName: string;
+  userLogout: string | null;
 }
 
 export const NavBar = ({
   className = "",
   toggleMenu,
   userName,
+  userLogout,
 }: INavBarProps) => {
+  const [user] = useLocalStorage("user", null);
+
   return (
     <nav className="flex flex-col gap-[80px] items-center justify-center lg:flex-row lg:gap-[180px]">
       <Link
@@ -29,7 +34,7 @@ export const NavBar = ({
         <li onClick={toggleMenu} className="link text-textColor">
           <NavLink to="board">Events</NavLink>
         </li>
-        {userName && (
+        {(userName || user) && userLogout === "" && (
           <li onClick={toggleMenu} className="link text-textColor">
             <NavLink to="schedule">Schedule</NavLink>
           </li>

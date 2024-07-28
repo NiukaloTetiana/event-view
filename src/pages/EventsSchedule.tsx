@@ -5,16 +5,16 @@ import { getEventsUser } from "../services";
 import { useLocalStorage } from "../hooks";
 import { EventsList, Loader } from "../components";
 
-const EventsSchedule = () => {
+const EventsSchedule = ({ isRefreshing }: { isRefreshing: boolean }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [events, setEvents] = useState([]);
   const [user] = useLocalStorage("user", null);
 
   useEffect(() => {
     const fetchEvents = async () => {
-      setIsLoading(true);
       try {
-        if (user) {
+        setIsLoading(true);
+        if (user && !isRefreshing) {
           const data = await getEventsUser();
           setEvents(data.events);
         }
@@ -30,7 +30,7 @@ const EventsSchedule = () => {
     };
 
     fetchEvents();
-  }, [user]);
+  }, [isRefreshing, user]);
 
   return (
     <div className="container pt-[64px] pb-[100px]">
