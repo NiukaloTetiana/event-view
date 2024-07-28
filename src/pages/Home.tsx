@@ -1,8 +1,8 @@
+import { useEffect } from "react";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 
 import welcome from "../assets/images/welcome.png";
-import { useEffect } from "react";
 
 const Home = () => {
   const navigate = useNavigate();

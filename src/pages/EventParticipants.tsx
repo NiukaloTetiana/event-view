@@ -13,11 +13,12 @@ const EventParticipants = () => {
   const [participants, setParticipants] = useState<IParticipant[]>([]);
   const [event, setEvent] = useState<IEvent | null>(null);
   const [filter, setFilter] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     if (!id) return;
 
+    setIsLoading(true);
     getEventById(id)
       .then((res) => {
         setEvent(res);
@@ -33,7 +34,7 @@ const EventParticipants = () => {
         toast.error(e.response.data.message);
       })
       .finally(() => {
-        setLoading(false);
+        setIsLoading(false);
       });
   }, [id]);
 
@@ -44,7 +45,7 @@ const EventParticipants = () => {
   const filteredParticipants = getFilterParticipants(filter, participants);
   const registrationData = getRegistrationsPerDay(participants);
 
-  if (loading) return <Loader />;
+  if (isLoading) return <Loader />;
 
   return (
     <div className="container pt-[64px] pb-[100px]">

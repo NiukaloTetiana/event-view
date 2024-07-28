@@ -1,10 +1,11 @@
 import { lazy, useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import { Layout, Loader } from "../components";
 import { PrivateRoute } from "../routes";
 import { useLocalStorage } from "../hooks";
-import { refreshUser } from "../services/api";
+import { refreshUser } from "../services";
 
 const Home = lazy(() => import("../pages/Home"));
 const EventParticipants = lazy(() => import("../pages/EventParticipants"));
@@ -22,7 +23,7 @@ export const App = () => {
       refreshUser(refreshToken)
         .then()
         .catch((e) => {
-          console.log(e);
+          toast.error(e.response.data.message);
         })
         .finally(() => setIsRefreshing(false));
     }

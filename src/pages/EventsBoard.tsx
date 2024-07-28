@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
+
 import { EventsList, Loader, Sort } from "../components";
 import { getEvents } from "../services";
 import { IEvent } from "../types";

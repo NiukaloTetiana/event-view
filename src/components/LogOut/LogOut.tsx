@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { Loader } from "../../components";
 import { logOutUser } from "../../services";
-import { useLocation, useNavigate } from "react-router-dom";
 
 interface ILogOutProps {
   toggleLogOutModal: () => void;

@@ -12,6 +12,7 @@ import {
 } from "../../schemas/validationSchemas";
 import { inputClass, renderMessage } from "../../helpers";
 import { loginUser, registerUser } from "../../services";
+import { Loader } from "../Loader/Loader";
 
 interface FormData {
   name?: string;
@@ -33,6 +34,7 @@ export const AuthForm = ({
   onClick,
 }: AuthFormProps) => {
   const [showPass, setShowPass] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const {
     register,
     reset,
@@ -53,28 +55,25 @@ export const AuthForm = ({
     email,
     password,
   }) => {
-    if (registration) {
-      registerUser({ name, email, password })
-        .then((res) => {
-          handleUserSession && handleUserSession(res.user.name, "");
-          toggleModal();
-          toast.success(
-            `Yohoo! ${res.user.name}, you are successfully registered!`
-          );
-        })
-        .catch((e) => {
-          toast.error(e.message);
-        });
-    } else {
-      loginUser({ email, password })
-        .then((res) => {
-          handleUserSession && handleUserSession(res.user.name, "");
-          toggleModal();
-          toast.success(`Welcome back, ${res.user.name}!`);
-        })
-        .catch((e) => {
-          toast.error(e.message);
-        });
+    try {
+      setIsLoading(true);
+      if (registration) {
+        const res = await registerUser({ name, email, password });
+        handleUserSession && handleUserSession(res.user.name, "");
+        toggleModal();
+        toast.success(
+          `Yohoo! ${res.user.name}, you are successfully registered!`
+        );
+      } else {
+        const res = await loginUser({ email, password });
+        handleUserSession && handleUserSession(res.user.name, "");
+        toggleModal();
+        toast.success(`Welcome back, ${res.user.name}!`);
+      }
+    } catch (e) {
+      toast.error((e as Error).message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -162,6 +161,8 @@ export const AuthForm = ({
           {registration ? "Sign Up" : "Log In"}
         </button>
       </form>
+
+      {isLoading && <Loader />}
 
       <p className="w-full font-normal text-[14px] text-center leading-[1.25] text-secondTextColor sm-max:text-[12px] lg:text-[16px]">
         {registration ? "Already have an account?" : "Don't have an account?"}{" "}

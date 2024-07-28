@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, RefObject } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+
 import { sortOptions } from "../../constants";
 
 interface ISortProps {

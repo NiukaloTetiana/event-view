@@ -5,7 +5,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { format } from "date-fns";
 import { toast } from "react-toastify";
 
+import { Loader } from "../../components";
 import { ParticipantRegisterSchema } from "../../schemas";
+import { inputClass, renderMessage } from "../../helpers";
 import {
   addEventUser,
   addParticipant,
@@ -13,8 +15,6 @@ import {
   getEventById,
 } from "../../services";
 import { IEvent, Source } from "../../types";
-import { Loader } from "../Loader/Loader";
-import { inputClass, renderMessage } from "../../helpers";
 
 interface IFormData {
   name: string;
@@ -70,9 +70,7 @@ export const RegisterForm = () => {
       addParticipant({ ...data, dateOfRegistration, eventId: id })
         .then(() => {
           if (user) {
-            addEventUser(id).catch((e) => {
-              console.log(e);
-            });
+            addEventUser(id || "");
           }
 
           toast.success("You have been successfully registered for the event.");
