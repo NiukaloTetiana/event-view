@@ -35,41 +35,80 @@ export const getEvents = async (
   params: IGetEventsParams,
   query: string = ""
 ): Promise<IEventsResponse> => {
-  const { data } = await instance.get(`/events?${query}`, { params });
+  try {
+    const { data } = await instance.get(`/events?${query}`, { params });
 
-  return data;
+    return data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(error.response?.data.message || "An error occurred");
+    }
+    throw new Error("An unknown error occurred");
+  }
 };
 
 export const getEventById = async (eventId: string): Promise<IEvent> => {
-  const { data } = await instance.get(`/events/${eventId}`);
+  try {
+    const { data } = await instance.get(`/events/${eventId}`);
 
-  return data;
+    return data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(error.response?.data.message);
+    }
+    throw new Error("An unknown error occurred");
+  }
 };
 
 export const addParticipant = async (
   participant: IParticipantNoId
 ): Promise<IParticipant> => {
-  const { data } = await instance.post(`/participants`, participant);
+  try {
+    const { data } = await instance.post(`/participants`, participant);
 
-  return data;
+    return data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(error.response?.data.message);
+    }
+    throw new Error("An unknown error occurred");
+  }
 };
 
 export const getParticipants = async () => {
-  const { data } = await instance.get(`/participants`);
+  try {
+    const { data } = await instance.get(`/participants`);
 
-  return data;
+    return data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(error.response?.data.message);
+    }
+  }
 };
 
 export const getParticipantsById = async (participantId: string) => {
-  const { data } = await instance.get(`/participants/${participantId}`);
+  try {
+    const { data } = await instance.get(`/participants/${participantId}`);
 
-  return data;
+    return data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(error.response?.data.message);
+    }
+  }
 };
 
 export const getParticipantsByEventId = async (id: string) => {
-  const { data } = await instance.get(`/participants?eventId=${id}`);
+  try {
+    const { data } = await instance.get(`/participants?eventId=${id}`);
 
-  return data;
+    return data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(error.response?.data.message);
+    }
+  }
 };
 
 export const registerUser = async (credentials: IUserCredentials) => {
