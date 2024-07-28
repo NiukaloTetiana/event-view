@@ -31,12 +31,9 @@ interface ITriangleBarProps extends IPathProps {
 const getPath = ({ x, y, width, height }: IPathProps) => {
   return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${
     y + height / 3
-  }
-  ${x + width / 2}, ${y}
-  C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${
-    x + width
-  }, ${y + height}
-  Z`;
+  } ${x + width / 2}, ${y} C${x + width / 2},${y + height / 3} ${
+    x + (2 * width) / 3
+  },${y + height} ${x + width}, ${y + height} Z`;
 };
 
 const TriangleBar = ({ fill, x, y, width, height }: ITriangleBarProps) => {
@@ -46,6 +43,12 @@ const TriangleBar = ({ fill, x, y, width, height }: ITriangleBarProps) => {
 };
 
 export const Chart: React.FC<IChartProps> = ({ data }) => {
+  const error = console.error;
+  console.error = (...args: unknown[]) => {
+    if (typeof args[0] === "string" && /defaultProps/.test(args[0])) return;
+    error(...args);
+  };
+
   return (
     <div className="relative w-full h-[400px] sm-max:h-[400px] lg:h-[450px] p-6 bg-bgFirstColor rounded-[30px] mb-[35px] shadow-md">
       <p className="absolute top-[10px] left-[22px] font-medium text-[18px] sm-max:text-[14px] lg:text-[24px] leading-[1.2] tracking-[-0.02em] text-textColor mb-[15px]">

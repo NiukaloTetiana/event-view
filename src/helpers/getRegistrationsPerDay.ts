@@ -17,7 +17,7 @@ export const getRegistrationsPerDay = (
   const startDate = subDays(today, 4);
 
   participants.forEach(({ dateOfRegistration }) => {
-    const registrationDate = parseISO(dateOfRegistration);
+    const registrationDate = new Date(dateOfRegistration);
     if (registrationDate >= startDate && registrationDate <= today) {
       const dateKey = format(registrationDate, "yyyy-MM-dd");
       if (!registrations[dateKey]) {
