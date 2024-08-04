@@ -48,8 +48,8 @@
 - **Modal Dialogs**: Enhanced interaction through modal dialogs for login, registration, and scheduling.
 - **Form Validation**: Implemented using React Hook Form and Yup for client-side validation.
 - **Dark/Light Mode Toggle**: Switch between light and dark themes for a comfortable viewing experience in different lighting conditions.
-
-<img src="./public/6.png" alt="Feature Registration and Login"/>
+  
+![Feature Registration and Login](./public/6.png)
 
 ## Technologies Used
 
