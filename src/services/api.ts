@@ -114,6 +114,9 @@ export const getParticipantsByEventId = async (id: string) => {
 export const registerUser = async (credentials: IUserCredentials) => {
   try {
     const { data } = await instance.post("/users/register", credentials);
+    const { email, password } = credentials;
+
+    await loginUser({ email, password });
     return data;
   } catch (error) {
     if (axios.isAxiosError(error)) {

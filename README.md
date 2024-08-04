@@ -49,10 +49,7 @@
 - **Form Validation**: Implemented using React Hook Form and Yup for client-side validation.
 - **Dark/Light Mode Toggle**: Switch between light and dark themes for a comfortable viewing experience in different lighting conditions.
 
-<div align="center" style="display: flex; gap: 10px; width: 100%;"> 
-<img src="./public/6.png" alt="Feature Registration" width="45%" />
-<img src="./public/7.png" alt="Feature Login" width="45%" />
-</div>
+<img src="./public/6.png" alt="Feature Registration and Login"/>
 
 ## Technologies Used
 

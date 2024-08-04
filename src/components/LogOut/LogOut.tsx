@@ -7,7 +7,7 @@ import { logOutUser } from "../../services";
 
 interface ILogOutProps {
   toggleLogOutModal: () => void;
-  handleUserSession: (name: string, userLogout: string | null) => void;
+  handleUserSession: (name: string, userLogout: boolean) => void;
 }
 
 export const LogOut = ({
@@ -24,9 +24,7 @@ export const LogOut = ({
     setIsLoading(true);
     logOutUser()
       .then(() => {
-        const user = localStorage.getItem("user");
-        const parsedUser = user ? JSON.parse(user) : null;
-        handleUserSession && handleUserSession("", parsedUser);
+        handleUserSession && handleUserSession("", false);
         toggleLogOutModal();
         if (pathname === "/schedule") {
           navigate("/home");

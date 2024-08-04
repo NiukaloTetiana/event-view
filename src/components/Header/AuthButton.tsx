@@ -7,7 +7,7 @@ interface IAuthButtonProps {
   className: string;
   classLogIn: string;
   classRegistration: string;
-  handleUserSession: (name: string, userLogout: string | null) => void;
+  handleUserSession: (name: string, userLogout:boolean) => void;
   toggleMenu?: () => void;
 }
 

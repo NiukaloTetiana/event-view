@@ -4,7 +4,7 @@ import { useModal } from "../../hooks";
 interface IUserBarProps {
   className?: string;
   toggleMenu?: () => void;
-  handleUserSession: (name: string, userLogout: string | null) => void;
+  handleUserSession: (name: string, userLogout: boolean) => void;
 }
 
 export const UserBar = ({

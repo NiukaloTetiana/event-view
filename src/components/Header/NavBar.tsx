@@ -6,7 +6,7 @@ interface INavBarProps {
   className: string;
   toggleMenu?: () => void;
   userName: string;
-  userLogout: string | null;
+  userLogout: boolean;
 }
 
 export const NavBar = ({
@@ -35,7 +35,7 @@ export const NavBar = ({
         <li onClick={toggleMenu} className="link text-textColor">
           <NavLink to="board">Events</NavLink>
         </li>
-        {(userName || user) && userLogout === "" && (
+        {(userName || user) && userLogout && (
           <li onClick={toggleMenu} className="link text-textColor">
             <NavLink to="schedule">Schedule</NavLink>
           </li>

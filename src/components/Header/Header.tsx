@@ -13,16 +13,14 @@ import { useLocalStorage, useModal } from "../../hooks";
 export const Header = () => {
   const [isMenuOpen, toggleMenu] = useModal();
   const [userName, setUserName] = useState("");
-  const [userLogout, setUserLogout] = useState<string | null>("");
+  const [userLogout, setUserLogout] = useState<boolean>(true);
 
   const [user] = useLocalStorage("user", null);
 
-  const handleUserSession = (name: string, user: string | null) => {
+  const handleUserSession = (name: string, user: boolean) => {
     setUserName(name);
 
-    if (user === null || user === "") {
-      setUserLogout(user);
-    }
+    setUserLogout(user);
   };
 
   return (
@@ -59,7 +57,7 @@ export const Header = () => {
         <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
           <ThemeToggle />
         </div>
-        {(userName || user) && userLogout === "" ? (
+        {(userName || user) && userLogout ? (
           <UserBar handleUserSession={handleUserSession} />
         ) : (
           <AuthButton

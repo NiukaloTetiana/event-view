@@ -24,7 +24,7 @@ interface AuthFormProps {
   registration: boolean;
   onClick: (value: boolean) => void;
   toggleModal: () => void;
-  handleUserSession: (name: string, userLogout: string | null) => void;
+  handleUserSession: (name: string, userLogout: boolean) => void;
 }
 
 export const AuthForm = ({
@@ -59,14 +59,14 @@ export const AuthForm = ({
       setIsLoading(true);
       if (registration) {
         const res = await registerUser({ name, email, password });
-        handleUserSession && handleUserSession(res.user.name, "");
+        handleUserSession && handleUserSession(res.user.name, true);
         toggleModal();
         toast.success(
           `Yohoo! ${res.user.name}, you are successfully registered!`
         );
       } else {
         const res = await loginUser({ email, password });
-        handleUserSession && handleUserSession(res.user.name, "");
+        handleUserSession && handleUserSession(res.user.name, true);
         toggleModal();
         toast.success(`Welcome back, ${res.user.name}!`);
       }

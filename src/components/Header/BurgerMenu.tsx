@@ -10,9 +10,9 @@ interface IBurgerMenuProps {
   classMenu: string;
   isOpen: boolean;
   userName: string;
-  userLogout: string | null;
+  userLogout: boolean;
   toggleMenu: () => void;
-  handleUserSession: (name: string, userLogout: string | null) => void;
+  handleUserSession: (name: string, userLogout: boolean) => void;
 }
 
 export const BurgerMenu = ({
@@ -55,7 +55,7 @@ export const BurgerMenu = ({
           className="flex flex-col gap-4 items-center w-full"
           toggleMenu={toggleMenu}
         />
-        {(userName || user) && userLogout === "" ? (
+        {(userName || user) && userLogout ? (
           <UserBar
             handleUserSession={handleUserSession}
             className="flex"
